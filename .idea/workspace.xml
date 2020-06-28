@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dffe660a-e907-4a6a-9153-21093773f7cb" name="Default Changelist" comment="" />
+    <list default="true" id="dffe660a-e907-4a6a-9153-21093773f7cb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_XL" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -21,6 +24,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\Bryan\Desktop\Final Project\Quiztaker\.idea" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1dxwOSpSPxeiF6Vyzb0PqFFWCgX" />
   <component name="ProjectViewState">
