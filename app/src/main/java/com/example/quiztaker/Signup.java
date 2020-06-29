@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +37,6 @@ public class Signup extends AppCompatActivity {
         editTextPhone = findViewById(R.id.editTextPhone);
 
 
-
         Intent intent = getIntent();
         listOfUsers = (HashMap<String, User>) intent.getSerializableExtra("map");
 
@@ -57,50 +57,57 @@ public class Signup extends AppCompatActivity {
                 boolean validEmail = false;
                 boolean validPhone = false;
 
+                DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
+                String res = dataBaseHelper.selectUsernames(username);
+
                 // makes sure all fields are not empty
                 if (!username.isEmpty() && !password.isEmpty() && !retypePassword.isEmpty() && !email.isEmpty() && !phone.isEmpty()) {
                     fieldsFilled = true;
 
 
-                // validates passwords match
-                if (password.equals(retypePassword)) {
-                    passwordsMatch = true;
-                } else {
-                    toast("Passwords must match");
-                }
+                    // validates passwords match
+                    if (password.equals(retypePassword)) {
+                        passwordsMatch = true;
+                    } else {
+                        toast("Passwords must match");
+                    }
 
-                // validates email is correct format
-                validEmail = Patterns.EMAIL_ADDRESS.matcher(email).matches();
-                if (!validEmail) {
-                    toast("Invalid email format");
-                }
+                    // validates email is correct format
+                    validEmail = Patterns.EMAIL_ADDRESS.matcher(email).matches();
+                    if (!validEmail) {
+                        toast("Invalid email format");
+                    }
 
-                // validates phone is correct format
-                validPhone = Patterns.PHONE.matcher(phone).matches();
-                if (!validPhone) {
-                    toast("Invalid phone format");
-                }
+                    // validates phone is correct format
+                    validPhone = Patterns.PHONE.matcher(phone).matches();
+                    if (!validPhone) {
+                        toast("Invalid phone format");
+                    }
 
-                // checks username with other accounts
-                if (!listOfUsers.containsKey(username)) {
-                    usernameUnique = true;
-                } else {
-                   toast("Username already exists");
-                }
+                    // checks username with other accounts
+                    if (res.equals("0")) {
+                        usernameUnique = true;
+                    } else {
+                        toast("Username already exists");
+                    }
 
                 } else {
                     toast("All fields required");
                 }
 
-                // adds user to hashmap as long as all conditions are true
+                // adds user to database as long as all conditions are true
                 if (fieldsFilled && usernameUnique && passwordsMatch && validEmail && validPhone) {
-                    listOfUsers.put(username ,new User(username,password,email, phone));
                     toast("Account created");
 
+                    dataBaseHelper.insertStudent(new User(username,password,email,phone));
+
                     Intent intent = new Intent(getApplicationContext(), Login.class);
-                    intent.putExtra("map", listOfUsers);
                     startActivity(intent);
                 }
+
+
+
+
 
             }
         });

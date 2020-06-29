@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Login extends AppCompatActivity {
@@ -57,18 +58,20 @@ public class Login extends AppCompatActivity {
                 String username = editTextUsername.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
 
-                // checks credentials for valid account in hashmap
-                if (listOfUsers.containsKey(username) && listOfUsers.get(username).getPassword().equals(password)) {
 
-                    Intent intent = new Intent(getApplicationContext(), Dashboard.class);
-                    intent.putExtra("username", editTextUsername.getText().toString());
-                    startActivity(intent);
+                DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
+                // checks credentials for valid account in database
+                boolean validLogin = dataBaseHelper.checkStudentLogin(username, password);
+
+
+                if (validLogin) {
+                    Toast.makeText(getApplicationContext(), "SUCCESSFUL!!!",
+                            Toast.LENGTH_LONG).show();
+                    // CODE TO GO TO STUDENT MAIN ACTIVITY DASHBOARD!!!
                 } else {
-                    Toast.makeText(Login.this, "Invalid Credentials", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "INVALID USERNAME OR PASSWORD",
+                            Toast.LENGTH_LONG).show();
                 }
-
-
-
 
             }
         });
