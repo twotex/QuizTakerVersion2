@@ -63,11 +63,17 @@ public class Login extends AppCompatActivity {
                 // checks credentials for valid account in database
                 boolean validLogin = dataBaseHelper.checkStudentLogin(username, password);
 
+                // CODE TO GO TO STUDENT MAIN ACTIVITY DASHBOARD!!! -- Testing admin section hard coded right now
+                if (username.equals("test")) {
+                    Intent intent = new Intent(getApplicationContext(), AdminDashboard.class);
+                    startActivity(intent);
+                }
 
                 if (validLogin) {
                     Toast.makeText(getApplicationContext(), "SUCCESSFUL!!!",
                             Toast.LENGTH_LONG).show();
-                    // CODE TO GO TO STUDENT MAIN ACTIVITY DASHBOARD!!!
+
+
                 } else {
                     Toast.makeText(getApplicationContext(), "INVALID USERNAME OR PASSWORD",
                             Toast.LENGTH_LONG).show();
