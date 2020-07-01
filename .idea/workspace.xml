@@ -22,19 +22,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____app_libs_mysql_connector_java_8_0_15_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/AdminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/AdminDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/CreateQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/CreateQuiz.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/DataBaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Signup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-land/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Quiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/TimeLimit.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/TimeLimit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-land/admin_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/admin_dashboard.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_dashboard.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,41 +179,52 @@
     </state>
     <state x="713" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593409986425" />
     <state x="2633" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593399472015" />
-    <state x="765" y="229" width="804" height="568" key="#com.intellij.ide.util.MemberChooser" timestamp="1593505527202">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="531" y="187" width="804" height="568" key="#com.intellij.ide.util.MemberChooser" timestamp="1593590886178">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
+    <state x="531" y="187" key="#com.intellij.ide.util.MemberChooser/0.0.1333.849@0.0.1333.849" timestamp="1593590886178" />
     <state x="765" y="229" width="804" height="568" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593505527202" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593393925855">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593393925855" />
-    <state x="540" y="275" key="AndroidCreateResourceFileDialog" timestamp="1593502817388">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="375" y="224" key="AndroidCreateResourceFileDialog" timestamp="1593588041599">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
+    <state x="375" y="224" key="AndroidCreateResourceFileDialog/0.0.1333.849@0.0.1333.849" timestamp="1593588041599" />
     <state x="540" y="275" key="AndroidCreateResourceFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593502817388" />
-    <state x="769" y="276" key="FileChooserDialogImpl" timestamp="1593502209979">
+    <state x="815" y="285" key="AndroidProcessChooserDialog" timestamp="1593547647838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="815" y="285" key="AndroidProcessChooserDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593547647838" />
+    <state x="534" y="225" key="FileChooserDialogImpl" timestamp="1593586269347">
+      <screen x="0" y="0" width="1333" height="849" />
+    </state>
+    <state x="534" y="225" key="FileChooserDialogImpl/0.0.1333.849@0.0.1333.849" timestamp="1593586269347" />
     <state x="769" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593502209979" />
     <state x="2689" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593400600122" />
-    <state width="1877" height="346" key="GridCell.Tab.0.bottom" timestamp="1593504930407">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="645" height="66" key="GridCell.Tab.0.bottom" timestamp="1593591292999">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
+    <state width="645" height="66" key="GridCell.Tab.0.bottom/0.0.1333.849@0.0.1333.849" timestamp="1593591292999" />
     <state width="1877" height="346" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593504930407" />
     <state width="1877" height="79" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
-    <state width="1877" height="346" key="GridCell.Tab.0.center" timestamp="1593504930407">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="645" height="66" key="GridCell.Tab.0.center" timestamp="1593591292998">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
+    <state width="645" height="66" key="GridCell.Tab.0.center/0.0.1333.849@0.0.1333.849" timestamp="1593591292998" />
     <state width="1877" height="346" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593504930407" />
     <state width="1877" height="79" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
-    <state width="1877" height="346" key="GridCell.Tab.0.left" timestamp="1593504930407">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="645" height="66" key="GridCell.Tab.0.left" timestamp="1593591292998">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
+    <state width="645" height="66" key="GridCell.Tab.0.left/0.0.1333.849@0.0.1333.849" timestamp="1593591292998" />
     <state width="1877" height="346" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593504930407" />
     <state width="1877" height="79" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
-    <state width="1877" height="346" key="GridCell.Tab.0.right" timestamp="1593504930407">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="645" height="66" key="GridCell.Tab.0.right" timestamp="1593591292998">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
+    <state width="645" height="66" key="GridCell.Tab.0.right/0.0.1333.849@0.0.1333.849" timestamp="1593591292998" />
     <state width="1877" height="346" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593504930407" />
     <state width="1877" height="79" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1593404273120">

@@ -42,10 +42,19 @@ public class AdminDashboard extends AppCompatActivity {
 
         });
 
-        // event listener for create a quiz button
+        // event listener for create change quiz time
         changeTimeOfQuizButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), TimeLimit.class);
+                startActivity(intent);
+            }
+
+        });
+
+        // event listener to add student to quiz
+        registerStudentsQuizButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RegisterStudents.class);
                 startActivity(intent);
             }
 

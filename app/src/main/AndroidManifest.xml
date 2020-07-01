@@ -14,6 +14,8 @@
         <activity android:name=".Dashboard" />
         <activity android:name=".AdminDashboard"/>
         <activity android:name=".TimeLimit"/>
+        <activity android:name=".RegisterStudents"/>
+        <activity android:name=".QuizQuestion"/>
         <activity android:name=".Signup" />
         <activity android:name=".QuizCategory" />
         <activity android:name=".CreateQuiz" />

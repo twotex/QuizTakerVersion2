@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class DataBaseHelper extends SQLiteOpenHelper {
@@ -16,13 +17,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String QUIZ_TABLE = "QUIZ_TABLE";
     public static final String STUDENTS_TABLE = "STUDENTS_TABLE";
     public static final String CATEGORY_TABLE = "CATEGORY_TABLE";
+    public static final String QUIZ_STUDENTS_TABLE = "QUIZ_STUDENTS_TABLE";
     public static final String COLUMN_USERNAME = "COLUMN_USERNAME";
     public static final String COLUMN_PASSWORD = "COLUMN_PASSWORD";
     public static final String COLUMN_EMAIL = "COLUMN_EMAIL";
 
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "quiztakerDBB", null , 1);
+        super(context, "quizTakerDB", null , 1);
     }
 
     // this is called the first time a database is accessed. The code in here will generate a new database.
@@ -34,8 +36,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         String createTableStatement2 = "create table "+ CATEGORY_TABLE + " (id integer primary key, category text UNIQUE)";
         db.execSQL(createTableStatement2);
 
-    String createTableStatement3 = "create table "+ QUIZ_TABLE + " (id integer primary key, category text, quiz_name text, minutes text, UNIQUE(category,quiz_name), FOREIGN KEY(category) REFERENCES CATEGORY_TABLE(id))";
+        String createTableStatement3 = "create table "+ QUIZ_TABLE + " (id integer primary key, category text, quiz_name text, minutes text, UNIQUE(category,quiz_name), FOREIGN KEY(category) REFERENCES CATEGORY_TABLE(id))";
         db.execSQL(createTableStatement3);
+
+        String createTableStatement4 = "create table "+ QUIZ_STUDENTS_TABLE + " (id integer primary key, quiz_name text, category text, studentName text, UNIQUE(quiz_name,category,studentName))";
+        db.execSQL(createTableStatement4);
     }
 
     // Whenever the version number of the database changes
@@ -157,6 +162,67 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(query);
         return 1;
     }
+
+
+    /*
+    SELECT ID, Name FROM   Table1 WHERE  ID NOT IN (SELECT ID FROM Table2)
+     */
+
+
+    public ArrayList<User> selectStudentInfo() {
+        String query = "SELECT * FROM STUDENTS_TABLE";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery(query,null);
+        ArrayList<User> list = new ArrayList<>();
+        try {
+            while (c.moveToNext()) {
+                int index = c.getColumnIndexOrThrow("id");
+                int id = c.getInt(index);
+
+                int index2 = c.getColumnIndexOrThrow("username");
+                String username = c.getString(index2);
+
+                list.add(new User(id,username));
+            }
+        } finally {
+            c.close();
+        }
+        return list;
+    }
+
+    public long insetStudentQuiz(String name, String quizName, String category) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put("quiz_name", quizName);
+        cv.put("category", category);
+        cv.put("studentName", name);
+
+        long res = db.insert(QUIZ_STUDENTS_TABLE,null,cv);
+        return res;
+    }
+
+    public Quiz selectQuiz(String quizName, String quizCategory) {
+        String query = "SELECT * FROM QUIZ_TABLE WHERE quiz_name = \'"+ quizName + "\' AND category = \'"+ quizCategory + "\'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery(query,null);
+        Quiz quiz = null;
+        try {
+            while (c.moveToNext()) {
+                int index = c.getColumnIndexOrThrow("id");
+                int id = c.getInt(index);
+                quiz = new Quiz(quizName, quizCategory, id);
+            }
+        } finally {
+            c.close();
+        }
+        return quiz;
+    }
+
 
 
 }

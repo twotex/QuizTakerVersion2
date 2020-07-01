@@ -156,7 +156,14 @@ public class TimeLimit extends AppCompatActivity {
 
         });
 
+        // event listener for back button
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AdminDashboard.class);
+                startActivity(intent);
+            }
 
+        });
 
     }
 }

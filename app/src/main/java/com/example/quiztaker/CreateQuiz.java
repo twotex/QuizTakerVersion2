@@ -11,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class CreateQuiz extends AppCompatActivity {
@@ -95,6 +94,10 @@ public class CreateQuiz extends AppCompatActivity {
                         } else {
                             Toast.makeText(getApplicationContext(),"Successfully created quiz!",
                                     Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(getApplicationContext(), QuizQuestion.class);
+                            intent.putExtra("arr", new String[] {quizName, quizCategory});
+                            startActivity(intent);
                         }
                     }
                 }

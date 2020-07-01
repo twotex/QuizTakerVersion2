@@ -5,11 +5,18 @@ public class Quiz {
     private String quizName;
     private String quizCategory;
     private String timeLimit;
+    private int id;
 
     public Quiz(String quizName, String quizCategory, String timeLimit) {
         this.quizName = quizName;
         this.quizCategory = quizCategory;
         this.timeLimit = timeLimit;
+    }
+
+    public Quiz(String quizName, String quizCategory, int id) {
+        this.quizName = quizName;
+        this.quizCategory = quizCategory;
+        this.id = id;
     }
 
     public String getQuizName() {
@@ -34,5 +41,13 @@ public class Quiz {
 
     public void setTimeLimit(String timeLimit) {
         this.timeLimit = timeLimit;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
