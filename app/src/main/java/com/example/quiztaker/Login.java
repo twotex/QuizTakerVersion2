@@ -25,13 +25,14 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
         buttonLogin = findViewById(R.id.buttonLogin);
         buttonSignup = findViewById(R.id.buttonSignup);
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         listOfUsers = new HashMap<>();
 
+        dataBaseHelper.insertAdmin("admin", "123", "super_admin");
 
         Intent intent = getIntent();
         HashMap<String,User> userCreated = (HashMap<String, User>) intent.getSerializableExtra("map");
@@ -61,23 +62,27 @@ public class Login extends AppCompatActivity {
 
                 DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
                 // checks credentials for valid account in database
-                boolean validLogin = dataBaseHelper.checkStudentLogin(username, password);
 
-                // CODE TO GO TO STUDENT MAIN ACTIVITY DASHBOARD!!! -- Testing admin section hard coded right now
-                if (username.equals("test")) {
+                if (username.equals("admin") && password.equals("123")) {
                     Intent intent = new Intent(getApplicationContext(), AdminDashboard.class);
                     startActivity(intent);
-                }
-
-                if (validLogin) {
-                    Toast.makeText(getApplicationContext(), "SUCCESSFUL!!!",
-                            Toast.LENGTH_LONG).show();
-
-
                 } else {
-                    Toast.makeText(getApplicationContext(), "INVALID USERNAME OR PASSWORD",
-                            Toast.LENGTH_LONG).show();
+                    boolean validLogin = dataBaseHelper.checkStudentLogin(username, password);
+
+                    if (validLogin) {
+                        Toast.makeText(getApplicationContext(), "SUCCESSFUL!!!",
+                                Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                        startActivity(intent);
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "INVALID USERNAME OR PASSWORD",
+                                Toast.LENGTH_LONG).show();
+                    }
                 }
+
+
+
 
             }
         });

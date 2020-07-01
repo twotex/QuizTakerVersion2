@@ -22,6 +22,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_PASSWORD = "COLUMN_PASSWORD";
     public static final String COLUMN_EMAIL = "COLUMN_EMAIL";
     private static final String QUIZ_QUESTIONS_TABLE = "QUIZ_QUESTIONS_TABLE";
+    private static final String ADMINS_TABLE = "ADMINS_TABLE";
 
 
     public DataBaseHelper(@Nullable Context context) {
@@ -45,6 +46,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         String createTableStatement5 = "create table "+ QUIZ_QUESTIONS_TABLE + " (id integer primary key, id_quiz integer, question text, answer text, option1 text, option2 text, option3 text, UNIQUE(id_quiz, question), FOREIGN KEY(id_quiz) REFERENCES QUIZ_TABLE(id))";
         db.execSQL(createTableStatement5);
+
+        String createTableStatement6 = "create table "+ ADMINS_TABLE + " (id integer primary key, username text, password text, type text, UNIQUE(username,password))";
+        db.execSQL(createTableStatement6);
     }
 
     // Whenever the version number of the database changes
@@ -240,6 +244,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         long res = db.insert(QUIZ_QUESTIONS_TABLE,null,cv);
         return res;
+    }
+
+    public boolean insertAdmin(String username, String password, String type) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put("username", username);
+        cv.put("password", password);
+        cv.put("type", type);
+
+
+        db.insert(ADMINS_TABLE,null,cv);
+        return true;
     }
 
 }
