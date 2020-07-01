@@ -21,10 +21,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_USERNAME = "COLUMN_USERNAME";
     public static final String COLUMN_PASSWORD = "COLUMN_PASSWORD";
     public static final String COLUMN_EMAIL = "COLUMN_EMAIL";
+    private static final String QUIZ_QUESTIONS_TABLE = "QUIZ_QUESTIONS_TABLE";
 
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "quizTakerDB", null , 1);
+        super(context, "quizTakerrr", null , 1);
     }
 
     // this is called the first time a database is accessed. The code in here will generate a new database.
@@ -41,6 +42,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         String createTableStatement4 = "create table "+ QUIZ_STUDENTS_TABLE + " (id integer primary key, quiz_name text, category text, studentName text, UNIQUE(quiz_name,category,studentName))";
         db.execSQL(createTableStatement4);
+
+        String createTableStatement5 = "create table "+ QUIZ_QUESTIONS_TABLE + " (id integer primary key, id_quiz integer, question text, UNIQUE(id_quiz, question), FOREIGN KEY(id_quiz) REFERENCES QUIZ_TABLE(id))";
+        db.execSQL(createTableStatement5);
     }
 
     // Whenever the version number of the database changes
@@ -221,6 +225,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             c.close();
         }
         return quiz;
+    }
+
+    public long insertQuestion(Quiz quiz, String question) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put("id_quiz", quiz.getId());
+        cv.put("question", question);
+
+        long res = db.insert(QUIZ_QUESTIONS_TABLE,null,cv);
+        return res;
     }
 
 

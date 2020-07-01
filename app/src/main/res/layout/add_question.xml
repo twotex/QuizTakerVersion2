@@ -36,7 +36,7 @@
             android:textSize="15dp" />
 
         <EditText
-            android:id="@+id/editTextTextQuestion"
+            android:id="@+id/editTextQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -51,7 +51,7 @@
             android:textSize="15dp" />
 
         <EditText
-            android:id="@+id/editTextTextAnswer"
+            android:id="@+id/editTextAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -68,7 +68,7 @@
             android:textSize="15dp" />
 
         <EditText
-            android:id="@+id/editTextTextOption1"
+            android:id="@+id/editTextOption1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -87,7 +87,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextOption3"
+            android:id="@+id/editTextOption3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
