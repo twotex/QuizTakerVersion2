@@ -54,9 +54,23 @@ public class QuizQuestion extends AppCompatActivity {
         // event listener to add student to quiz
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                long res = dataBaseHelper.insertQuestion(quiz, editTextQuestion.getText().toString());
-                Toast.makeText(getApplicationContext(), String.valueOf(res),
-                      Toast.LENGTH_LONG).show();
+                if (editTextQuestion.getText().toString().equals("") || editTextAnswer.getText().equals("") || editTextOption1.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(), "Error: required fields missing",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    String[] options = {editTextAnswer.getText().toString() ,editTextOption1.getText().toString(), editTextOption2.getText().toString(), editTextOption3.getText().toString()};
+                    long res = dataBaseHelper.insertQuestion(quiz, editTextQuestion.getText().toString(), options);
+                    Toast.makeText(getApplicationContext(), String.valueOf(res),
+                            Toast.LENGTH_LONG).show();
+
+                    editTextAnswer.setText("");
+                    editTextOption1.setText("");
+                    editTextOption2.setText("");
+                    editTextOption3.setText("");
+                    editTextQuestion.setText("");
+                }
+
+
             }
 
         });

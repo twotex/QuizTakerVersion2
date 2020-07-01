@@ -25,7 +25,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "quizTakerrr", null , 1);
+        super(context, "quizTaker", null , 1);
     }
 
     // this is called the first time a database is accessed. The code in here will generate a new database.
@@ -43,7 +43,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         String createTableStatement4 = "create table "+ QUIZ_STUDENTS_TABLE + " (id integer primary key, quiz_name text, category text, studentName text, UNIQUE(quiz_name,category,studentName))";
         db.execSQL(createTableStatement4);
 
-        String createTableStatement5 = "create table "+ QUIZ_QUESTIONS_TABLE + " (id integer primary key, id_quiz integer, question text, UNIQUE(id_quiz, question), FOREIGN KEY(id_quiz) REFERENCES QUIZ_TABLE(id))";
+        String createTableStatement5 = "create table "+ QUIZ_QUESTIONS_TABLE + " (id integer primary key, id_quiz integer, question text, answer text, option1 text, option2 text, option3 text, UNIQUE(id_quiz, question), FOREIGN KEY(id_quiz) REFERENCES QUIZ_TABLE(id))";
         db.execSQL(createTableStatement5);
     }
 
@@ -227,17 +227,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return quiz;
     }
 
-    public long insertQuestion(Quiz quiz, String question) {
+    public long insertQuestion(Quiz quiz, String question, String[] options) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put("id_quiz", quiz.getId());
         cv.put("question", question);
+        cv.put("answer", options[0]);
+        cv.put("option1", options[1]);
+        cv.put("option2", options[2]);
+        cv.put("option3", options[3]);
 
         long res = db.insert(QUIZ_QUESTIONS_TABLE,null,cv);
         return res;
     }
-
-
 
 }
