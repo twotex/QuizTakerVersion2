@@ -41,10 +41,10 @@
         app:layout_constraintGuide_percent="0.96" />
 
     <TextView
-        android:id="@+id/detailedScoreTextView"
+        android:id="@+id/textView12"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/score_detailed_info"
+        android:text="@string/quiz_results_label"
         app:layout_constraintBottom_toTopOf="@+id/guideline50"
         app:layout_constraintEnd_toStartOf="@+id/guideline58"
         app:layout_constraintStart_toStartOf="@+id/guideline55"
@@ -58,7 +58,7 @@
         app:layout_constraintGuide_percent="0.14" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/quizResultsTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/answer_key_label"

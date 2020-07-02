@@ -31,7 +31,7 @@
     <string name="next_question_text">Next Question</string>
     <string name="submit_quiz_text">Submit Quiz</string>
 
-    <string name="score_detailed_info">Score: </string>
+    <string name="quiz_results_label">QUIZ RESULTS</string>
     <string name="answer_key_label">Answer Key</string>
     <string name="hash_symbol">#</string>
     <string name="question_label">Question:</string>
