@@ -12,6 +12,8 @@ public class AdminDashboard extends AppCompatActivity {
     private Button createQuizButton;
     private Button changeTimeOfQuizButton;
     private Button registerStudentsQuizButton;
+    private Button buttonResults;
+    private Button buttonLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class AdminDashboard extends AppCompatActivity {
         createQuizButton = findViewById(R.id.createQuizButton);
         changeTimeOfQuizButton = findViewById(R.id.changeTimeOfQuizButton);
         registerStudentsQuizButton = findViewById(R.id.registerStudentsQuizButton);
+        buttonLogout = findViewById(R.id.buttonLogout);
+        buttonResults = findViewById(R.id.buttonResults);
 
 
         // event listener for create a quiz button
@@ -55,6 +59,24 @@ public class AdminDashboard extends AppCompatActivity {
         registerStudentsQuizButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RegisterStudents.class);
+                startActivity(intent);
+            }
+
+        });
+
+        // event listener to add student to quiz
+        buttonLogout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+
+        });
+
+        // event listener to add student to quiz
+        buttonResults.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AdminResults.class);
                 startActivity(intent);
             }
 

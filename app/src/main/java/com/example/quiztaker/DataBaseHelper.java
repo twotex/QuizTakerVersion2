@@ -53,7 +53,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         String createTableStatement6 = "create table "+ ADMINS_TABLE + " (id integer primary key, username text, password text, type text, UNIQUE(username,password))";
         db.execSQL(createTableStatement6);
 
-        String createTableStatement7 = "create table "+ QUIZ_RESULTS + " (id integer primary key, username text, category text, quiz_id text, score text, UNIQUE(username, category, quiz_id))";
+        String createTableStatement7 = "create table "+ QUIZ_RESULTS + " (id integer primary key, username text, category text, quiz_id text, score text, quiz_name, UNIQUE(username, category, quiz_id))";
         db.execSQL(createTableStatement7);
     }
 
@@ -347,7 +347,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return listQuestions;
     }
 
-    public long insertQuiz(String username, String category, int quizID, String score) {
+    public long insertQuiz(String username, String category, String quizID, String score, String quizName) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -355,9 +355,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put("category", category);
         cv.put("quiz_id", String.valueOf(quizID));
         cv.put("score", score);
+        cv.put("quiz_name", quizName);
 
-
-        long res = db.insert(ADMINS_TABLE,null,cv);
+        long res = db.insert(QUIZ_RESULTS,null,cv);
         return res;
     }
 
@@ -379,9 +379,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 String quizID = c.getString(index3);
 
                 int index4 = c.getColumnIndexOrThrow("score");
-                String score = c.getString(index3);
+                String score = c.getString(index4);
 
-                list.add(new Result(username, category, quizID, score));
+                int index5 = c.getColumnIndex("quiz_name");
+                String quizName = c.getString(index5);
+
+                list.add(new Result(username, category, quizID, score, quizName));
             }
         } finally {
             c.close();

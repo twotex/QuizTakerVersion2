@@ -201,6 +201,8 @@ public class QuizQuestionFragment extends Fragment {
                 intent.putExtra("numberOfQuestions", String.valueOf(numberOfQuestions));
                 intent.putExtra("solutions", solutions);
                 intent.putExtra("questions", questionsText);
+                intent.putExtra("quizName", theName);
+                intent.putExtra("category", theCategory);
                 startActivity(intent);
             }
 

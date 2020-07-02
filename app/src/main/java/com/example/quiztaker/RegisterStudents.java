@@ -20,6 +20,7 @@ public class RegisterStudents extends AppCompatActivity {
     private Spinner spinnerQuizName;
     private Spinner spinnerStudents;
     private Button buttonUpdate;
+    private Button buttonBack;
 
 
     @Override
@@ -31,6 +32,7 @@ public class RegisterStudents extends AppCompatActivity {
         spinnerQuizName = findViewById(R.id.spinnerQuizName);
         spinnerStudents = findViewById(R.id.spinnerStudents);
         buttonUpdate = findViewById(R.id.buttonUpdate);
+        buttonBack = findViewById(R.id.buttonBack);
 
         final DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
 
@@ -89,6 +91,16 @@ public class RegisterStudents extends AppCompatActivity {
             }
 
         });
+
+        // event listener to add student to quiz
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AdminDashboard.class);
+                startActivity(intent);
+            }
+
+        });
+
 
         ArrayList<User> userResults = dataBaseHelper.selectStudentInfo();
 

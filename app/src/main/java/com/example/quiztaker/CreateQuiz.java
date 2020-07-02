@@ -20,7 +20,7 @@ public class CreateQuiz extends AppCompatActivity {
     private Spinner spinnerCategory;
     private EditText editTextHours;
     private EditText editTextMinutes;
-    private CheckBox checkboxUnlimited;
+
     private EditText editTextQuizName;
 
 
@@ -36,7 +36,7 @@ public class CreateQuiz extends AppCompatActivity {
         spinnerCategory = findViewById(R.id.spinnerCategory);
         editTextHours = findViewById(R.id.editTextHours);
         editTextMinutes = findViewById(R.id.editTextMinutes);
-        checkboxUnlimited = findViewById(R.id.checkBoxUnlimited);
+
         editTextQuizName = findViewById(R.id.editTextQuizName);
 
         // Query database for categories and put them in an array list then fill the spinner
@@ -48,14 +48,7 @@ public class CreateQuiz extends AppCompatActivity {
         spinnerCategory.setAdapter(spinnerArrayAdapter);
 
 
-        // event listener for back button
-        checkboxUnlimited.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                editTextHours.setText("");
-                editTextMinutes.setText("");
-            }
 
-        });
 
 
         // event listener for submit button that creates a quiz category
@@ -65,7 +58,7 @@ public class CreateQuiz extends AppCompatActivity {
                 String quizCategory = spinnerCategory.getSelectedItem().toString();
 
 
-                if (!checkboxUnlimited.isActivated()) {
+
                     int min = Integer.parseInt(editTextMinutes.getText().toString());
                     int hours = Integer.parseInt(editTextHours.getText().toString());
                     boolean minValidation = true;
@@ -102,14 +95,16 @@ public class CreateQuiz extends AppCompatActivity {
                     }
                 }
 
-                // event listener for back button
-                buttonBack.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), AdminDashboard.class);
-                        startActivity(intent);
-                    }
 
-                });
+
+
+        });
+
+        // event listener for back button
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AdminDashboard.class);
+                startActivity(intent);
             }
 
         });

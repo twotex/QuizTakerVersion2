@@ -32,6 +32,7 @@ public class QuizResults extends AppCompatActivity {
         questionsListView = findViewById(R.id.questionNumberListView);
         mainMenu = findViewById(R.id.main_menu_button);
 
+        DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
 
 
         //theScore.setText("Final Score: 7/10 - 70% - Grade: C"); //UPDATE THIS WITH QUERY
@@ -42,17 +43,21 @@ public class QuizResults extends AppCompatActivity {
         String quizId = incomingIntent.getStringExtra("quizId");
         String correct = incomingIntent.getStringExtra("correct");
         String totalQuestions = incomingIntent.getStringExtra("numberOfQuestions");
-        ArrayList<String> solutions = incomingIntent.getStringArrayListExtra("solutions");    /// GET INFO HERE
-        ArrayList<String> questions = incomingIntent.getStringArrayListExtra("questions");
+        String quizName = incomingIntent.getStringExtra("quizName");
+        String category = incomingIntent.getStringExtra("category");
+        final ArrayList<String> solutions = incomingIntent.getStringArrayListExtra("solutions");    /// GET INFO HERE
+        final ArrayList<String> questions = incomingIntent.getStringArrayListExtra("questions");
+
 
         theScore.setText(correct + "/" + totalQuestions);
         quizNumOfQuestions = Integer.parseInt(totalQuestions); //UPDATE THIS WITH QUERY
+        dataBaseHelper.insertQuiz(username,category, quizId, theScore.getText().toString(), quizName);
 
         Toast.makeText(getApplicationContext(), "username: "+ username + "" +
                 "\nQuizID" + quizId +
                 "\ncorrect: " + correct +
                 "\nNumber of Questions"+ totalQuestions +
-                "\nsolutions: " + questions.toString() , Toast.LENGTH_SHORT).show();
+                "\nsolutions: " + solutions.toString() , Toast.LENGTH_SHORT).show();
 
         // going into Database (username, category, quiz_id)
 
@@ -77,20 +82,20 @@ public class QuizResults extends AppCompatActivity {
 
         questionsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                if (position == 0) { //SWAP STRING WITH QUERY RESULTS
-                    theQuestion.setText("Who was the first president of the United States of America");
-                    theAnswer.setText("George Washington");
-                }
 
-                else if (position == 1) { //SWAP STRING WITH QUERY RESULTS
-                    theQuestion.setText("It takes 4 nickels to make $0.25");
-                    theAnswer.setText("False");
-                }
+                    theQuestion.setText(questions.get(position));
+                    theAnswer.setText(solutions.get(position));
 
-                else { //SWAP STRING WITH QUERY RESULTS
-                    theQuestion.setText("How many inches are there in 2 feet?");
-                    theAnswer.setText("24");
-                }
+
+//                else if (position == 1) { //SWAP STRING WITH QUERY RESULTS
+//                    theQuestion.setText("It takes 4 nickels to make $0.25");
+//                    theAnswer.setText("False");
+//                }
+//
+//                else { //SWAP STRING WITH QUERY RESULTS
+//                    theQuestion.setText("How many inches are there in 2 feet?");
+//                    theAnswer.setText("24");
+//                }
             }
     });
 

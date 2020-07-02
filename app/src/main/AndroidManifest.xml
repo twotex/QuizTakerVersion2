@@ -22,6 +22,7 @@
         <activity android:name=".QuizResults"/>
         <activity android:name=".GradeReportOption"/>
         <activity android:name=".VariableGradeReport"/>
+        <activity android:name=".AdminResults"/>
 
         <activity android:name=".QuizQuestion"/>
         <activity android:name=".Signup" />
