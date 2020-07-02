@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 
@@ -28,6 +29,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public DataBaseHelper(@Nullable Context context) {
         super(context, "quizTaker", null , 1);
     }
+
 
     // this is called the first time a database is accessed. The code in here will generate a new database.
     @Override
@@ -257,6 +259,88 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         db.insert(ADMINS_TABLE,null,cv);
         return true;
+    }
+
+    public ArrayList<Quiz> selectStudentQuizes(String username) {
+        String query = "SELECT * FROM QUIZ_STUDENTS_TABLE WHERE studentName = \'"+ username +"\'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery(query,null);
+        ArrayList<Quiz> list = new ArrayList<>();
+        try {
+            while (c.moveToNext()) {
+                int index = c.getColumnIndexOrThrow("id");
+                int id = c.getInt(index);
+
+                int index2 = c.getColumnIndexOrThrow("quiz_name");
+                String quizName = c.getString(index2);
+
+                int index3 = c.getColumnIndexOrThrow("category");
+                String quizCategory = c.getString(index3);
+                list.add(new Quiz(quizName,quizCategory,id));
+            }
+        } finally {
+            c.close();
+        }
+        return list;
+    }
+
+    public Quiz findQuizIdandTime(String quizCategory, String quizName) {
+        String query = "SELECT * FROM QUIZ_TABLE WHERE quiz_name = \'"+ quizName + "\' AND category = \'"+ quizCategory + "\'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery(query,null);
+        Quiz quiz = null;
+        try {
+            while (c.moveToNext()) {
+                int index = c.getColumnIndexOrThrow("id");
+                int id = c.getInt(index);
+
+                int index2 = c.getColumnIndex("minutes");
+                int min = c.getInt(index2);
+                quiz = new Quiz(quizName, quizCategory, id, min);
+
+            }
+        } finally {
+            c.close();
+        }
+        return quiz;
+    }
+
+    public ArrayList<Question> getQuestions(int quizId) {
+        String query = "SELECT * FROM QUIZ_QUESTIONS_TABLE WHERE id_quiz = \'"+ quizId + "\'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery(query,null);
+        ArrayList<Question> listQuestions = new ArrayList<>();
+        try {
+            while (c.moveToNext()) {
+                int index = c.getColumnIndexOrThrow("question");
+                String question = c.getString(index);
+
+                int index1 = c.getColumnIndexOrThrow("answer");
+                String answer = c.getString(index1);
+
+                int index2 = c.getColumnIndexOrThrow("option1");
+                String option1 = c.getString(index2);
+
+                int index3 = c.getColumnIndexOrThrow("option2");
+                String option2 = c.getString(index3);
+
+                int index4 = c.getColumnIndexOrThrow("option3");
+                String option3 = c.getString(index4);
+
+                listQuestions.add(new Question(question,answer,option1,option2,option3));
+
+
+            }
+        } finally {
+            c.close();
+        }
+        return listQuestions;
     }
 
 }

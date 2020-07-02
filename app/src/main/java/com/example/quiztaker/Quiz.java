@@ -6,6 +6,7 @@ public class Quiz {
     private String quizCategory;
     private String timeLimit;
     private int id;
+    private int minutes;
 
     public Quiz(String quizName, String quizCategory, String timeLimit) {
         this.quizName = quizName;
@@ -17,6 +18,21 @@ public class Quiz {
         this.quizName = quizName;
         this.quizCategory = quizCategory;
         this.id = id;
+    }
+
+    public Quiz(String quizName, String quizCategory, int id, int minutes) {
+        this.quizName = quizName;
+        this.quizCategory = quizCategory;
+        this.id = id;
+        this.minutes = minutes;
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
     }
 
     public String getQuizName() {

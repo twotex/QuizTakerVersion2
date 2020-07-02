@@ -5,4 +5,41 @@
     <string name="password">Password</string>
     <string name="signup">Signup</string>
     <string name="message">Hi</string>
+
+    <string name="all_quizzes_msg">Grade report for all quizzes taken</string>
+    <string name="quizzes_by_subject_msg">Grade report for all quizzes taken by Subject</string>
+
+    <string name="select_quiz_label">Select a Quiz</string>
+    <string name="grade_label">Grade: </string>
+    <string name="score_label">Score: </string>
+    <string name="percentage_label">Percentage: </string>
+    <string name="main_menu_label">Main Menu</string>
+    <string name="close_window_label">Close Window</string>
+
+    <string name="category_label">Category</string>
+    <string name="quiz_name_label">Quiz Name</string>
+
+    <string name="quiz_select">Please Select a Quiz to Take</string>
+    <string name="submit_btn_text">Submit</string>
+
+    <string name="time_remaining_label">Time Remaining: </string>
+    <string name="question_number_label">Question #</string>
+    <string name="option_one">Option 1</string>
+    <string name="option_two">Option 2</string>
+    <string name="option_three">Option 3</string>
+    <string name="option_four">Option 4</string>
+    <string name="next_question_text">Next Question</string>
+    <string name="submit_quiz_text">Submit Quiz</string>
+
+    <string name="score_detailed_info">Score: </string>
+    <string name="answer_key_label">Answer Key</string>
+    <string name="hash_symbol">#</string>
+    <string name="question_label">Question:</string>
+    <string name="select_a_question_number">Select a question number from the sidebar to view its answer</string>
+    <string name="correct_answer_label">Correct Answer:</string>
+
+    <string name="take_a_quiz_label">Take a Quiz</string>
+    <string name="view_final_grades_report_label">View Final Grades Report</string>
+
+    <string name="dummy_msg">Dummy Message</string>
 </resources>

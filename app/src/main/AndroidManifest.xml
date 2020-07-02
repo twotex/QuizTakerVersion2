@@ -15,6 +15,14 @@
         <activity android:name=".AdminDashboard"/>
         <activity android:name=".TimeLimit"/>
         <activity android:name=".RegisterStudents"/>
+
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".QuizInProgress"/>
+        <activity android:name=".TakeQuizDisplay"/>
+        <activity android:name=".QuizResults"/>
+        <activity android:name=".GradeReportOption"/>
+        <activity android:name=".VariableGradeReport"/>
+
         <activity android:name=".QuizQuestion"/>
         <activity android:name=".Signup" />
         <activity android:name=".QuizCategory" />
