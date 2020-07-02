@@ -13,18 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dffe660a-e907-4a6a-9153-21093773f7cb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/AdminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/AdminDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/CreateQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/CreateQuiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/DataBaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizQuestionFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizQuestionFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizResults.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/RegisterStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/RegisterStudents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_dashboard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/create_quiz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/create_quiz.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/quiz_results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/quiz_results.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/register_students.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/register_students.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/AdminResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/AdminResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/add_question.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/add_question.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,29 +191,29 @@
     <state x="534" y="225" key="FileChooserDialogImpl/0.0.1333.849@0.0.1333.849" timestamp="1593665649128" />
     <state x="769" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593676891687" />
     <state x="2689" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593400600122" />
-    <state width="1877" height="334" key="GridCell.Tab.0.bottom" timestamp="1593676947204">
+    <state width="1877" height="53" key="GridCell.Tab.0.bottom" timestamp="1593677919599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1097" height="393" key="GridCell.Tab.0.bottom/0.0.1333.849@0.0.1333.849" timestamp="1593669249202" />
-    <state width="1877" height="334" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593676947204" />
+    <state width="1877" height="53" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593677919599" />
     <state width="1877" height="79" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
-    <state width="1877" height="334" key="GridCell.Tab.0.center" timestamp="1593676947204">
+    <state width="1877" height="53" key="GridCell.Tab.0.center" timestamp="1593677919599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1097" height="393" key="GridCell.Tab.0.center/0.0.1333.849@0.0.1333.849" timestamp="1593669249201" />
-    <state width="1877" height="334" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593676947204" />
+    <state width="1877" height="53" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593677919599" />
     <state width="1877" height="79" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
-    <state width="1877" height="334" key="GridCell.Tab.0.left" timestamp="1593676947204">
+    <state width="1877" height="53" key="GridCell.Tab.0.left" timestamp="1593677919599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1097" height="393" key="GridCell.Tab.0.left/0.0.1333.849@0.0.1333.849" timestamp="1593669249201" />
-    <state width="1877" height="334" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593676947204" />
+    <state width="1877" height="53" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593677919599" />
     <state width="1877" height="79" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
-    <state width="1877" height="334" key="GridCell.Tab.0.right" timestamp="1593676947204">
+    <state width="1877" height="53" key="GridCell.Tab.0.right" timestamp="1593677919599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1097" height="393" key="GridCell.Tab.0.right/0.0.1333.849@0.0.1333.849" timestamp="1593669249202" />
-    <state width="1877" height="334" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593676947204" />
+    <state width="1877" height="53" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593677919599" />
     <state width="1877" height="79" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
     <state x="724" y="231" key="RollbackChangesDialog" timestamp="1593618842422">
       <screen x="0" y="0" width="1920" height="1040" />

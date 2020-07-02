@@ -22,7 +22,7 @@ public class AdminResults extends AppCompatActivity {
 
         DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
         ArrayList<Result> queryRes = dataBaseHelper.selectQuizResults();    // your going to call this query
-        
+
         ArrayList<String> lvString = new ArrayList<>();
 
         listView = findViewById(R.id.listView);
