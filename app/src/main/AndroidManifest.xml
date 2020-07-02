@@ -10,25 +10,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login"></activity>
-        <activity android:name=".Dashboard" />
-        <activity android:name=".AdminDashboard"/>
-        <activity android:name=".TimeLimit"/>
-        <activity android:name=".RegisterStudents"/>
+        <activity android:name=".Login" android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+        <activity android:name=".Dashboard" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".AdminDashboard" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".TimeLimit" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".RegisterStudents" android:configChanges="orientation|screenSize|keyboardHidden"/>
 
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".QuizInProgress"/>
-        <activity android:name=".TakeQuizDisplay"/>
-        <activity android:name=".QuizResults"/>
-        <activity android:name=".GradeReportOption"/>
-        <activity android:name=".VariableGradeReport"/>
-        <activity android:name=".AdminResults"/>
+        <activity android:name=".MainActivity" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".QuizInProgress" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".TakeQuizDisplay" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".QuizResults" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".GradeReportOption" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".VariableGradeReport" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".AdminResults" android:configChanges="orientation|screenSize|keyboardHidden"/>
 
-        <activity android:name=".QuizQuestion"/>
-        <activity android:name=".Signup" />
-        <activity android:name=".QuizCategory" />
-        <activity android:name=".CreateQuiz" />
-        <activity android:name=".SplashScreen">
+        <activity android:name=".QuizQuestion" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".Signup" android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name=".QuizCategory" android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name=".CreateQuiz" android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name=".SplashScreen" android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -52,5 +52,17 @@
             android:layout_height="wrap_content"
             android:text="Register students pending in the system" />
 
+        <Button
+            android:id="@+id/buttonResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quiz Results" />
+
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

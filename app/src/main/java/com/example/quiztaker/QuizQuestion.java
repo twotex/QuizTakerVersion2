@@ -47,8 +47,6 @@ public class QuizQuestion extends AppCompatActivity {
         final DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
 
         quiz = dataBaseHelper.selectQuiz(quizName, quizCategory);
-        //Toast.makeText(getApplicationContext(), String.valueOf(quiz.getId()),
-          //      Toast.LENGTH_LONG).show();
 
 
         // event listener to add student to quiz
@@ -60,8 +58,7 @@ public class QuizQuestion extends AppCompatActivity {
                 } else {
                     String[] options = {editTextAnswer.getText().toString() ,editTextOption1.getText().toString(), editTextOption2.getText().toString(), editTextOption3.getText().toString()};
                     long res = dataBaseHelper.insertQuestion(quiz, editTextQuestion.getText().toString(), options);
-                    Toast.makeText(getApplicationContext(), String.valueOf(res),
-                            Toast.LENGTH_LONG).show();
+
 
                     editTextAnswer.setText("");
                     editTextOption1.setText("");

@@ -70,8 +70,6 @@ public class Login extends AppCompatActivity {
                     boolean validLogin = dataBaseHelper.checkStudentLogin(username, password);
 
                     if (validLogin) {
-                        Toast.makeText(getApplicationContext(), "SUCCESSFUL!!!",
-                                Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.putExtra("info", username);
                         startActivity(intent);

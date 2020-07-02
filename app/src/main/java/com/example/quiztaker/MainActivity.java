@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     private String theUsername;
+    private Button logOutBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle b = this.getIntent().getExtras();
         theUsername = b.getString("info");
+        logOutBtn = findViewById(R.id.logOutBtn);
 
 
         Button takeQuizButton = findViewById(R.id.takeQuizBtn);
@@ -42,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, GradeReportOption.class);
                 intent.putExtra("username", theUsername);
                 intent.putExtra("actionToTake", "Display All Quizzes");
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        logOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Login.class);
                 MainActivity.this.startActivity(intent);
             }
         });

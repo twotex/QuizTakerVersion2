@@ -104,8 +104,7 @@ public class RegisterStudents extends AppCompatActivity {
 
         ArrayList<User> userResults = dataBaseHelper.selectStudentInfo();
 
-        Toast.makeText(getApplicationContext(), userResults.toString(),
-                Toast.LENGTH_LONG).show();
+
 
         ArrayList<String> userList = new ArrayList<>();
         for (int i = 0; i < userResults.size(); i++) {
