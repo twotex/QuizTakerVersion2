@@ -37,6 +37,7 @@ public class QuizCategory extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Successfully added " + editTextTextCategory.getText().toString() +
                             " to the system",
                             Toast.LENGTH_SHORT).show();
+                    editTextTextCategory.setText("");
                 }
             }
 

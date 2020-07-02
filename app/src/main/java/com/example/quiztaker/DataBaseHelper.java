@@ -22,6 +22,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_USERNAME = "COLUMN_USERNAME";
     public static final String COLUMN_PASSWORD = "COLUMN_PASSWORD";
     public static final String COLUMN_EMAIL = "COLUMN_EMAIL";
+    public static final String QUIZ_RESULTS = "QUIZ_RESULTS";
     private static final String QUIZ_QUESTIONS_TABLE = "QUIZ_QUESTIONS_TABLE";
     private static final String ADMINS_TABLE = "ADMINS_TABLE";
 
@@ -51,6 +52,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         String createTableStatement6 = "create table "+ ADMINS_TABLE + " (id integer primary key, username text, password text, type text, UNIQUE(username,password))";
         db.execSQL(createTableStatement6);
+
+        String createTableStatement7 = "create table "+ QUIZ_RESULTS + " (id integer primary key, username text, category text, quiz_id text, score text, UNIQUE(username, category, quiz_id))";
+        db.execSQL(createTableStatement7);
     }
 
     // Whenever the version number of the database changes
@@ -342,5 +346,49 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
         return listQuestions;
     }
+
+    public long insertQuiz(String username, String category, int quizID, String score) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put("username", username);
+        cv.put("category", category);
+        cv.put("quiz_id", String.valueOf(quizID));
+        cv.put("score", score);
+
+
+        long res = db.insert(ADMINS_TABLE,null,cv);
+        return res;
+    }
+
+    public ArrayList<Result> selectQuizResults() {
+        String query = "SELECT * FROM QUIZ_RESULTS";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery(query,null);
+        ArrayList<Result> list = new ArrayList<>();
+        try {
+            while (c.moveToNext()) {
+                int index = c.getColumnIndexOrThrow("username");
+                String username = c.getString(index);
+
+                int index2 = c.getColumnIndexOrThrow("category");
+                String category = c.getString(index2);
+
+                int index3 = c.getColumnIndexOrThrow("quiz_id");
+                String quizID = c.getString(index3);
+
+                int index4 = c.getColumnIndexOrThrow("score");
+                String score = c.getString(index3);
+
+                list.add(new Result(username, category, quizID, score));
+            }
+        } finally {
+            c.close();
+        }
+        return list;
+    }
+
+
 
 }
