@@ -42,7 +42,7 @@ public class QuizResults extends AppCompatActivity {
         String quizId = incomingIntent.getStringExtra("quizId");
         String correct = incomingIntent.getStringExtra("correct");
         String totalQuestions = incomingIntent.getStringExtra("numberOfQuestions");
-        ArrayList<String> solutions = incomingIntent.getStringArrayListExtra("solutions");
+        ArrayList<String> solutions = incomingIntent.getStringArrayListExtra("solutions");    /// GET INFO HERE
         ArrayList<String> questions = incomingIntent.getStringArrayListExtra("questions");
 
         theScore.setText(correct + "/" + totalQuestions);
@@ -54,6 +54,7 @@ public class QuizResults extends AppCompatActivity {
                 "\nNumber of Questions"+ totalQuestions +
                 "\nsolutions: " + questions.toString() , Toast.LENGTH_SHORT).show();
 
+        // going into Database (username, category, quiz_id)
 
         ArrayList <Integer> theQuestionNumbers = new ArrayList<>();
 
