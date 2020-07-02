@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Bundle b = this.getIntent().getExtras();
-        final String theUsername = b.getString("info");
+        theUsername = b.getString("info");
 
 
         Button takeQuizButton = findViewById(R.id.takeQuizBtn);
@@ -30,22 +30,17 @@ public class MainActivity extends AppCompatActivity {
         takeQuizButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-
-                //UserDetails userInQuestion = new UserDetails(theUsername, 45); //Pass this info in
                 Intent intent = new Intent(MainActivity.this, TakeQuizDisplay.class);
-                //intent.putExtra(theUsername);
                 intent.putExtra("username", theUsername);
                 MainActivity.this.startActivity(intent);
-
             }
         });
 
         viewReportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserDetails userInQuestion = new UserDetails(theUsername, 45); //Pass this info in
                 Intent intent = new Intent(MainActivity.this, GradeReportOption.class);
-                intent.putExtra("theUserObject", userInQuestion);
+                intent.putExtra("username", theUsername);
                 intent.putExtra("actionToTake", "Display All Quizzes");
                 MainActivity.this.startActivity(intent);
             }

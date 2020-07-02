@@ -47,17 +47,22 @@ public class QuizResults extends AppCompatActivity {
         String category = incomingIntent.getStringExtra("category");
         final ArrayList<String> solutions = incomingIntent.getStringArrayListExtra("solutions");    /// GET INFO HERE
         final ArrayList<String> questions = incomingIntent.getStringArrayListExtra("questions");
+        // ALL THE DATA ABOVE IS COMING IN CORRECTLY
+
+        System.out.println("Username: " + username);
+        System.out.println("Quiz id: " + quizId);
+        System.out.println("Correct: " + correct);
+        System.out.println("Total questions: " + totalQuestions);
+        System.out.println("Quiz name: " + quizName);
+        System.out.println("Category: " + category);
+        System.out.println("Questions: " + questions.toString());
+        System.out.print("\n\n\n\n");
+        System.out.println("Answers: " + solutions.toString());
 
 
-        theScore.setText(correct + "/" + totalQuestions);
-        quizNumOfQuestions = Integer.parseInt(totalQuestions); //UPDATE THIS WITH QUERY
+        theScore.setText("Score for " + quizName + ": " + correct + "/" + totalQuestions);
+        quizNumOfQuestions = Integer.parseInt(totalQuestions);
         dataBaseHelper.insertQuiz(username,category, quizId, theScore.getText().toString(), quizName);
-
-        Toast.makeText(getApplicationContext(), "username: "+ username + "" +
-                "\nQuizID" + quizId +
-                "\ncorrect: " + correct +
-                "\nNumber of Questions"+ totalQuestions +
-                "\nsolutions: " + solutions.toString() , Toast.LENGTH_SHORT).show();
 
         // going into Database (username, category, quiz_id)
 
@@ -74,9 +79,7 @@ public class QuizResults extends AppCompatActivity {
 
         mainMenu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
+                finish();
             }
         });
 
@@ -85,20 +88,9 @@ public class QuizResults extends AppCompatActivity {
 
                     theQuestion.setText(questions.get(position));
                     theAnswer.setText(solutions.get(position));
-
-
-//                else if (position == 1) { //SWAP STRING WITH QUERY RESULTS
-//                    theQuestion.setText("It takes 4 nickels to make $0.25");
-//                    theAnswer.setText("False");
-//                }
-//
-//                else { //SWAP STRING WITH QUERY RESULTS
-//                    theQuestion.setText("How many inches are there in 2 feet?");
-//                    theAnswer.setText("24");
 //                }
             }
     });
-
 }
 }
 

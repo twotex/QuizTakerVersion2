@@ -35,25 +35,25 @@ public class QuizQuestionFragment extends Fragment {
     private RadioButton optionTwo;
     private RadioButton optionThree;
     private RadioButton optionFour;
-    private ArrayList<Question> questions;
+
     private String currentAnswer;
+    private ArrayList<Question> allQuestions;
     private String currentQuestion;
     private ArrayList<String> solutions;
     private ArrayList<String> questionsText;
-    private int correct;
+    private int questionsAnsweredCorrect;
 
-    public QuizQuestionFragment(String quizCategory, String quizName, int quizId) {
+    public QuizQuestionFragment(String quizCategory, String quizName, int quizId, String theUsername) {
+        username = theUsername;
         theCategory = quizCategory;
         theName = quizName;
-        numberOfQuestions = 3; //Update this
-        currentQuestionIndex = 0;
         id = quizId;
-        questions = new ArrayList<>();
-
+        currentQuestionIndex = 0;
+        allQuestions = new ArrayList<>();
     }
 
-    public static QuizQuestionFragment newInstance(String quizCategory, String quizName, int id) {
-        QuizQuestionFragment fragment = new QuizQuestionFragment(quizCategory, quizName, id);
+    public static QuizQuestionFragment newInstance(String quizCategory, String quizName, int id, String theUsername) {
+        QuizQuestionFragment fragment = new QuizQuestionFragment(quizCategory, quizName, id, theUsername);
         return fragment;
     }
 
@@ -61,8 +61,6 @@ public class QuizQuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.quiz_question, container, false);
-
-        username = getArguments().getString("username");
 
         questionNumber = rootView.findViewById(R.id.questionNumberTextView);
         questionDescription = rootView.findViewById(R.id.questionDescriptionTextView);
@@ -74,96 +72,42 @@ public class QuizQuestionFragment extends Fragment {
         solutions = new ArrayList<>();
         questionsText = new ArrayList<>();
 
-
         DataBaseHelper dataBaseHelper = new DataBaseHelper((getContext()));
-        questions = dataBaseHelper.getQuestions(id);
-        numberOfQuestions = questions.size();
-
-
-
-               Toast toast = Toast.makeText(getContext(), questions.toString(),
-               Toast.LENGTH_SHORT);
-        toast.show();
+        allQuestions = dataBaseHelper.getQuestions(id);
+        numberOfQuestions = allQuestions.size();
 
         if (numberOfQuestions > 0) {
             loadQuestion(currentQuestionIndex);
         }
-
-
-
 
         return rootView;
     }
 
     public void loadQuestion(int questionToLoad) {
 
-        if (questionToLoad == 0) { //Keep this if statement. Use it to load every question besides the last one
-            currentQuestionOptionsAvailable = 4; //Update this number with database query results
-            setAvailableRadioButtons(currentQuestionOptionsAvailable);
-            questionNumber.setText("Question# 1");
-            questionDescription.setText(questions.get(questionToLoad).getQuestion());
-            optionOne.setText(questions.get(questionToLoad).getOption1());
-            optionTwo.setText(questions.get(questionToLoad).getAnswer());
-            optionThree.setText(questions.get(questionToLoad).getOption3());
-            optionFour.setText(questions.get(questionToLoad).getOption2());
+        currentQuestionOptionsAvailable = 4; //Update this number with database query results
+        setAvailableRadioButtons(currentQuestionOptionsAvailable);
 
-            currentAnswer = questions.get(questionToLoad).getAnswer();
+        radioButtonContainer.clearCheck();
+        questionNumber.setText("Question# " + (questionToLoad + 1));
+        questionDescription.setText(allQuestions.get(questionToLoad).getQuestion());
+        optionOne.setText(allQuestions.get(questionToLoad).getOption1());
+        optionTwo.setText(allQuestions.get(questionToLoad).getAnswer());
+        optionThree.setText(allQuestions.get(questionToLoad).getOption3());
+        optionFour.setText(allQuestions.get(questionToLoad).getOption2());
 
-            currentQuestion = questions.get(questionToLoad).getQuestion();
-            questionsText.add(currentQuestion);
-            solutions.add(currentAnswer);
-
-
-//            questionNumber.setText("Question# 1");
-//            questionDescription.setText("Who was the first president of the United States of America?");
-//            optionOne.setText("George Washington");
-//            optionTwo.setText("Barack Obama");
-//            optionThree.setText("Thomas Jefferson");
-        }
-
-
-        else if (questionToLoad == 1) { //This is just for testing purposes. It can be deleted later
-            radioButtonContainer.clearCheck();
-            currentQuestionOptionsAvailable = 4; //Update this number with database query results
-            setAvailableRadioButtons(currentQuestionOptionsAvailable);
-            questionNumber.setText("Question# 2");
-            questionDescription.setText(questions.get(questionToLoad).getQuestion());
-            optionOne.setText(questions.get(questionToLoad).getOption1());
-            optionTwo.setText(questions.get(questionToLoad).getOption3());
-            optionThree.setText(questions.get(questionToLoad).getAnswer());
-            optionFour.setText(questions.get(questionToLoad).getOption2());
-
-            currentAnswer = questions.get(questionToLoad).getAnswer();
-            currentQuestion = questions.get(questionToLoad).getQuestion();
-            questionsText.add(currentQuestion);
-            solutions.add(currentAnswer);
-
-        }
-
-        else { //Keep this else statement. It is to load the final question on the exam and hide the
-               // next question button and replace it with the submit quiz button
-            QuizInProgress parentActivity = (QuizInProgress) getActivity();
-            parentActivity.showSubmitButton();
-            radioButtonContainer.clearCheck();
-            currentQuestionOptionsAvailable = 4; //Update this number with database query results
-            setAvailableRadioButtons(currentQuestionOptionsAvailable);
-            questionNumber.setText("Question# " + (questionToLoad+1));
-            questionDescription.setText(questions.get(questionToLoad).getQuestion());
-            optionOne.setText(questions.get(questionToLoad).getAnswer());
-            optionTwo.setText(questions.get(questionToLoad).getOption1());
-            optionThree.setText(questions.get(questionToLoad).getOption3());
-            optionFour.setText(questions.get(questionToLoad).getOption2());
-
-            currentAnswer = questions.get(questionToLoad).getAnswer();
-
-            currentQuestion = questions.get(questionToLoad).getQuestion();
-            questionsText.add(currentQuestion);
-            solutions.add(currentAnswer);
-        }
-
+        currentAnswer = allQuestions.get(questionToLoad).getAnswer();
+        currentQuestion = allQuestions.get(questionToLoad).getQuestion();
+        questionsText.add(currentQuestion);
+        solutions.add(currentAnswer);
         currentQuestionIndex++;
 
-        //
+        //Hides the next question button and replaced with submit button.
+        //This executes on the very last question
+        if (questionToLoad == numberOfQuestions - 1) {
+            QuizInProgress parentActivity = (QuizInProgress) getActivity();
+            parentActivity.showSubmitButton();
+        }
     }
 
     public void nextQuestion() {
@@ -172,9 +116,8 @@ public class QuizQuestionFragment extends Fragment {
             RadioButton selectedRadioButton = (RadioButton) getView().findViewById(idOfCheckedRadioButton);
             String userResponse = (String) selectedRadioButton.getText();
             if (userResponse.equals(currentAnswer)) {
-                correct++;
+                questionsAnsweredCorrect++;
             }
-            Toast.makeText(getContext(), userResponse, Toast.LENGTH_SHORT).show();
             loadQuestion(currentQuestionIndex);
         }
 
@@ -185,19 +128,22 @@ public class QuizQuestionFragment extends Fragment {
     }
 
     public void submitQuiz(boolean timeRemaining) {
+
         if (timeRemaining == true) {
             int idOfCheckedRadioButton = radioButtonContainer.getCheckedRadioButtonId();
+
             if (idOfCheckedRadioButton != -1) {
                 RadioButton selectedRadioButton = (RadioButton) getView().findViewById(idOfCheckedRadioButton);
                 String userResponse = (String) selectedRadioButton.getText();
-                Toast.makeText(getContext(), userResponse, Toast.LENGTH_SHORT).show();
 
-                //UserDetails userInQuestion = new UserDetails(theUsername, 45); //Pass this info in
+                if (userResponse.equals(currentAnswer)) {
+                    questionsAnsweredCorrect++;
+                }
+
                 Intent intent = new Intent(getActivity(), QuizResults.class);
-                intent.putExtra("actionToTake", "WhatUp");
                 intent.putExtra("quizId", String.valueOf(id));
                 intent.putExtra("username", username);
-                intent.putExtra("correct", String.valueOf(correct));
+                intent.putExtra("correct", String.valueOf(questionsAnsweredCorrect));
                 intent.putExtra("numberOfQuestions", String.valueOf(numberOfQuestions));
                 intent.putExtra("solutions", solutions);
                 intent.putExtra("questions", questionsText);
@@ -211,14 +157,18 @@ public class QuizQuestionFragment extends Fragment {
             }
         }
 
-        else {
-            boolean markQuestionWrong = true;
+        else { //USER RAN OUT OF TIME AND WAS NOT ABLE TO FINISH THE EXAM.
             Intent intent = new Intent(getActivity(), QuizResults.class);
-            intent.putExtra("actionToTake", "WhatUp");
+            intent.putExtra("quizId", String.valueOf(id));
+            intent.putExtra("username", username);
+            intent.putExtra("correct", String.valueOf(questionsAnsweredCorrect));
+            intent.putExtra("numberOfQuestions", String.valueOf(numberOfQuestions));
+            intent.putExtra("solutions", solutions);
+            intent.putExtra("questions", questionsText);
+            intent.putExtra("quizName", theName);
+            intent.putExtra("category", theCategory);
             startActivity(intent);
         }
-
-
     }
 
     public void setAvailableRadioButtons(int number) {

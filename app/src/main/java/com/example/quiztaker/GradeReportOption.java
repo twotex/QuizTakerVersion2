@@ -9,13 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class GradeReportOption extends AppCompatActivity {
 
-    private UserDetails theUserDetails;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_report_style);
-        theUserDetails = getIntent().getExtras().getParcelable("theUserObject");
+        userName = this.getIntent().getExtras().getString("username");
 
 
         Button allQuizzesButton = findViewById(R.id.reportAllQuizzesBtn);
@@ -27,7 +27,7 @@ public class GradeReportOption extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(GradeReportOption.this, VariableGradeReport.class);
-                intent.putExtra("theUserObject", theUserDetails);
+                intent.putExtra("theUserName", userName);
                 intent.putExtra("actionToTake", "Display All Quizzes");
 
                 GradeReportOption.this.startActivity(intent);
@@ -39,7 +39,7 @@ public class GradeReportOption extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(GradeReportOption.this, VariableGradeReport.class);
-                intent.putExtra("theUserObject", theUserDetails);
+                intent.putExtra("theUserName", userName);
                 intent.putExtra("actionToTake", "Display Category Quizzes");
                 GradeReportOption.this.startActivity(intent);
             }

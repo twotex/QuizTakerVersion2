@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class VariableGradeReport extends AppCompatActivity {
 
+    private String userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +25,12 @@ public class VariableGradeReport extends AppCompatActivity {
         });
 
         if (savedInstanceState == null) {
-            UserDetails userProfile = getIntent().getExtras().getParcelable("theUserObject");
+            userName = this.getIntent().getExtras().getString("theUserName");
             String action = getIntent().getExtras().getString("actionToTake");
 
 
             QuizMenuFragment fragment =
-                    QuizMenuFragment.newInstance(action);
+                    QuizMenuFragment.newInstance(action, userName);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.frameForQuizzes, fragment) //adding the song detail fragment to the frame layout within activity_song_detail
                     .commit();

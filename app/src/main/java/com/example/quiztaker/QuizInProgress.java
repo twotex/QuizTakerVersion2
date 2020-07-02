@@ -17,6 +17,8 @@ public class QuizInProgress extends AppCompatActivity {
     private String quizCategory;
     private String quizName;
     private String userName;
+    private int quizId;
+    private int minutesTotal;
 
     static int totalSecondsLeft;
     static Timer timer;
@@ -29,38 +31,26 @@ public class QuizInProgress extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_in_progress);
+
         timeRemaining = findViewById(R.id.timeRemainingTextView);
         nextQuestionButton = findViewById(R.id.nextQuestionBtn);
         submitButton = findViewById(R.id.submitQuizBtn);
 
-        Bundle b = this.getIntent().getExtras();
-        final String category = b.getString("theCategory");
-        final String quizname = b.getString("theQuiz");
-        int quizId = b.getInt("quizId");
-        int minutesTotal = b.getInt("minutes");
-        userName = b.getString("userName");
-
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Category name: " +category + "\nQuiz name: " + quizname + "\nQuizID: " + quizId + "\nMinutes: " + minutesTotal + "\n username: " + userName,
-                Toast.LENGTH_SHORT);
-        toast.show();
+        quizCategory = this.getIntent().getExtras().getString("theCategory");
+        quizName = this.getIntent().getExtras().getString("theQuiz");
+        userName = this.getIntent().getExtras().getString("userName");
+        quizId = this.getIntent().getExtras().getInt("quizId");
+        minutesTotal = this.getIntent().getExtras().getInt("minutes");
 
         // converts minutes to hour and minutes
         int hoursRemaining =  minutesTotal / 60;
         int minutesRemaining = minutesTotal % 60;
         int secondsRemaining = 0;
 
-        Bundle bundle = new Bundle();
-        bundle.putString("username", userName);
-
-
-
         String theTimeFormatted = String.format("Time Remaining: %02d:%02d:%02d", hoursRemaining, minutesRemaining, secondsRemaining);
         timeRemaining.setText(theTimeFormatted);
-        String quizCategory = getIntent().getExtras().getString("theCategory");
-        String quizName = getIntent().getExtras().getString("theQuiz");
-        fragment = QuizQuestionFragment.newInstance(quizCategory, quizName, quizId);
-        fragment.setArguments(bundle);
+
+        fragment = QuizQuestionFragment.newInstance(quizCategory, quizName, quizId, userName);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.quizAreaSection, fragment).commit();
 
@@ -142,7 +132,9 @@ public class QuizInProgress extends AppCompatActivity {
     public void hideRadioButtons() {
         fragment.setAvailableRadioButtons(0);
     }
-
 }
+
+
+
 
 
