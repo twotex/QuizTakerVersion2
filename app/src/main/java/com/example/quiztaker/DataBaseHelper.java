@@ -391,7 +391,4 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
         return list;
     }
-
-
-
 }

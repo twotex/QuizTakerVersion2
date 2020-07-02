@@ -61,7 +61,7 @@ public class QuizResults extends AppCompatActivity {
 
         theScore.setText("Grade: " + findGrade(theScoreString) + " - Percentage: " + findPercentage(theScoreString) + " - Score: " + theScoreString);
         quizNumOfQuestions = Integer.parseInt(totalQuestions);
-        dataBaseHelper.insertQuiz(username, category, quizId, theScoreString, quizName);
+        dataBaseHelper.insertQuiz(username, category, quizId, theScoreString, quizName); //LOOOOOOOK AT THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         // going into Database (username, category, quiz_id)
 

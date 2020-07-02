@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class QuizMenuFragment extends Fragment {
 
@@ -68,7 +70,8 @@ public class QuizMenuFragment extends Fragment {
             theListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v, int position, long id){
                     VariableGradeReport parentActivity = (VariableGradeReport) getActivity();
-                    parentActivity.updateStats("A", "9/10", "90%");
+                    String usersScore = "3/15"; //UPDATE THIS WITH QUERY RESULTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    parentActivity.updateStats(findGrade(usersScore), usersScore, findPercentage(usersScore)); //UPDATE THIS WITH QUERY RESULTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
             });
             return rootView;
@@ -117,7 +120,8 @@ public class QuizMenuFragment extends Fragment {
             specificQuizzesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                     VariableGradeReport parentActivity = (VariableGradeReport) getActivity();
-                    parentActivity.updateStats("A", "9/10", "90%"); //UPDATE THIS WITH QUERY RESULTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    String usersScore = "3/15"; //UPDATE THIS WITH QUERY RESULTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    parentActivity.updateStats(findGrade(usersScore), usersScore, findPercentage(usersScore));
                     specificQuizzesListView.setSelector(R.color.colorDarkerGray);
                 }
             });
@@ -193,5 +197,56 @@ public class QuizMenuFragment extends Fragment {
             });
             return rootView;
         }
+    }
+
+    protected String findPercentage(String score) {
+        int numerator;
+        int denominator;
+
+        List<String> items = Arrays.asList(score.split("/"));
+        System.out.println("List Contents: " + items.toString());
+        numerator = Integer.parseInt(items.get(0));
+        denominator = Integer.parseInt(items.get(1));
+
+        double ratio = (double)numerator / (double)denominator;
+        ratio = ratio * 100;
+        String finalPercentage = String.format("%.2f%%", ratio);
+        return finalPercentage;
+    }
+
+    protected String findGrade(String score) {
+        int numerator;
+        int denominator;
+
+        List<String> items = Arrays.asList(score.split("/"));
+        System.out.println("List Contents: " + items.toString());
+        numerator = Integer.parseInt(items.get(0));
+        denominator = Integer.parseInt(items.get(1));
+
+        double ratio = (double)numerator / (double)denominator;
+        ratio = ratio * 100;
+        String finalGrade;
+
+        if (ratio >= 90.0) {
+            finalGrade = "A";
+        }
+
+        else if (ratio >= 80.0) {
+            finalGrade = "B";
+        }
+
+        else if (ratio >= 70.0) {
+            finalGrade = "C";
+        }
+
+        else if (ratio >= 60.0) {
+            finalGrade = "D";
+        }
+
+        else {
+            finalGrade = "F";
+        }
+
+        return finalGrade;
     }
 }
