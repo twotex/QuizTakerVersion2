@@ -13,6 +13,7 @@ public class TakeQuizDisplay extends AppCompatActivity {
     private String chosenCategory;
     private String chosenQuiz;
     private int quizID;
+    public String theUsername;
 
 
 
@@ -34,6 +35,7 @@ public class TakeQuizDisplay extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
         bundle.putString("txt", theUsername);
+
         // set Fragmentclass Arguments
         //QuizMenuFragment fragobj = new QuizMenuFragment(theUsername);
         //fragobj.setArguments(bundle);
@@ -57,11 +59,12 @@ public class TakeQuizDisplay extends AppCompatActivity {
                 intent.putExtra("theQuiz", chosenQuiz);
                 intent.putExtra("quizId",q.getId());
                 intent.putExtra("minutes", q.getMinutes());
+                intent.putExtra("userName", theUsername);
 
-//                       Toast toast = Toast.makeText(getApplicationContext(),
-//                "Category name: " +chosenCategory + "\nQuiz name: " + chosenQuiz + "\nQuizID: " + q.getId() + "\nMinutes: " + q.getMinutes(),
-//                Toast.LENGTH_SHORT);
-//        toast.show();
+                       Toast toast = Toast.makeText(getApplicationContext(),
+                "!!! Category name: " +chosenCategory + "\nQuiz name: " + chosenQuiz + "\nQuizID: " + q.getId() + "\nMinutes: " + q.getMinutes() + "\n username: " + theUsername,
+                Toast.LENGTH_SHORT);
+        toast.show();
 
                 TakeQuizDisplay.this.startActivity(intent);
             }

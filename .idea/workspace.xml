@@ -15,14 +15,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/DataBaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Quiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizInProgress.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizInProgress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizQuestionFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizQuestionFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/TakeQuizDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/TakeQuizDisplay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,34 +191,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="815" y="285" key="AndroidProcessChooserDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593547647838" />
-    <state x="769" y="276" key="FileChooserDialogImpl" timestamp="1593646045244">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="534" y="225" key="FileChooserDialogImpl" timestamp="1593665649128">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
-    <state x="534" y="225" key="FileChooserDialogImpl/0.0.1333.849@0.0.1333.849" timestamp="1593593130124" />
+    <state x="534" y="225" key="FileChooserDialogImpl/0.0.1333.849@0.0.1333.849" timestamp="1593665649128" />
     <state x="769" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593646045244" />
     <state x="2689" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593400600122" />
-    <state width="1281" height="306" key="GridCell.Tab.0.bottom" timestamp="1593658930682">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1097" height="393" key="GridCell.Tab.0.bottom" timestamp="1593669249202">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
-    <state width="1291" height="368" key="GridCell.Tab.0.bottom/0.0.1333.849@0.0.1333.849" timestamp="1593593209714" />
+    <state width="1097" height="393" key="GridCell.Tab.0.bottom/0.0.1333.849@0.0.1333.849" timestamp="1593669249202" />
     <state width="1281" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593658930682" />
     <state width="1877" height="79" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
-    <state width="1281" height="306" key="GridCell.Tab.0.center" timestamp="1593658930682">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1097" height="393" key="GridCell.Tab.0.center" timestamp="1593669249201">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
-    <state width="1291" height="368" key="GridCell.Tab.0.center/0.0.1333.849@0.0.1333.849" timestamp="1593593209713" />
+    <state width="1097" height="393" key="GridCell.Tab.0.center/0.0.1333.849@0.0.1333.849" timestamp="1593669249201" />
     <state width="1281" height="306" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593658930682" />
     <state width="1877" height="79" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
-    <state width="1281" height="306" key="GridCell.Tab.0.left" timestamp="1593658930682">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1097" height="393" key="GridCell.Tab.0.left" timestamp="1593669249201">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
-    <state width="1291" height="368" key="GridCell.Tab.0.left/0.0.1333.849@0.0.1333.849" timestamp="1593593209713" />
+    <state width="1097" height="393" key="GridCell.Tab.0.left/0.0.1333.849@0.0.1333.849" timestamp="1593669249201" />
     <state width="1281" height="306" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593658930682" />
     <state width="1877" height="79" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
-    <state width="1281" height="306" key="GridCell.Tab.0.right" timestamp="1593658930682">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1097" height="393" key="GridCell.Tab.0.right" timestamp="1593669249202">
+      <screen x="0" y="0" width="1333" height="849" />
     </state>
-    <state width="1291" height="368" key="GridCell.Tab.0.right/0.0.1333.849@0.0.1333.849" timestamp="1593593209714" />
+    <state width="1097" height="393" key="GridCell.Tab.0.right/0.0.1333.849@0.0.1333.849" timestamp="1593669249202" />
     <state width="1281" height="306" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593658930682" />
     <state width="1877" height="79" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1593401812925" />
     <state x="724" y="231" key="RollbackChangesDialog" timestamp="1593618842422">
@@ -231,9 +229,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593404273120" />
-    <state x="330" y="170" width="672" height="678" key="search.everywhere.popup" timestamp="1593592719778">
+    <state x="330" y="170" width="672" height="678" key="search.everywhere.popup" timestamp="1593666125041">
       <screen x="0" y="0" width="1333" height="849" />
     </state>
-    <state x="330" y="170" width="672" height="678" key="search.everywhere.popup/0.0.1333.849@0.0.1333.849" timestamp="1593592719778" />
+    <state x="330" y="170" width="672" height="678" key="search.everywhere.popup/0.0.1333.849@0.0.1333.849" timestamp="1593666125041" />
   </component>
 </project>

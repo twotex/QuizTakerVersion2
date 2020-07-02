@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -26,6 +27,7 @@ public class QuizQuestionFragment extends Fragment {
     private int currentQuestionIndex;
     private int currentQuestionOptionsAvailable;
     private int id;
+    private String username;
     private TextView questionNumber;
     private TextView questionDescription;
     private RadioGroup radioButtonContainer;
@@ -34,6 +36,11 @@ public class QuizQuestionFragment extends Fragment {
     private RadioButton optionThree;
     private RadioButton optionFour;
     private ArrayList<Question> questions;
+    private String currentAnswer;
+    private String currentQuestion;
+    private ArrayList<String> solutions;
+    private ArrayList<String> questionsText;
+    private int correct;
 
     public QuizQuestionFragment(String quizCategory, String quizName, int quizId) {
         theCategory = quizCategory;
@@ -42,6 +49,7 @@ public class QuizQuestionFragment extends Fragment {
         currentQuestionIndex = 0;
         id = quizId;
         questions = new ArrayList<>();
+
     }
 
     public static QuizQuestionFragment newInstance(String quizCategory, String quizName, int id) {
@@ -54,6 +62,8 @@ public class QuizQuestionFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.quiz_question, container, false);
 
+        username = getArguments().getString("username");
+
         questionNumber = rootView.findViewById(R.id.questionNumberTextView);
         questionDescription = rootView.findViewById(R.id.questionDescriptionTextView);
         radioButtonContainer = rootView.findViewById(R.id.radioGroupContainer);
@@ -61,6 +71,8 @@ public class QuizQuestionFragment extends Fragment {
         optionTwo = rootView.findViewById(R.id.optionTwoRadioButton);
         optionThree = rootView.findViewById(R.id.optionThreeRadioButton);
         optionFour = rootView.findViewById(R.id.optionFourRadioButton);
+        solutions = new ArrayList<>();
+        questionsText = new ArrayList<>();
 
 
         DataBaseHelper dataBaseHelper = new DataBaseHelper((getContext()));
@@ -95,6 +107,12 @@ public class QuizQuestionFragment extends Fragment {
             optionThree.setText(questions.get(questionToLoad).getOption3());
             optionFour.setText(questions.get(questionToLoad).getOption2());
 
+            currentAnswer = questions.get(questionToLoad).getAnswer();
+
+            currentQuestion = questions.get(questionToLoad).getQuestion();
+            questionsText.add(currentQuestion);
+            solutions.add(currentAnswer);
+
 
 //            questionNumber.setText("Question# 1");
 //            questionDescription.setText("Who was the first president of the United States of America?");
@@ -115,6 +133,10 @@ public class QuizQuestionFragment extends Fragment {
             optionThree.setText(questions.get(questionToLoad).getAnswer());
             optionFour.setText(questions.get(questionToLoad).getOption2());
 
+            currentAnswer = questions.get(questionToLoad).getAnswer();
+            currentQuestion = questions.get(questionToLoad).getQuestion();
+            questionsText.add(currentQuestion);
+            solutions.add(currentAnswer);
 
         }
 
@@ -132,8 +154,16 @@ public class QuizQuestionFragment extends Fragment {
             optionThree.setText(questions.get(questionToLoad).getOption3());
             optionFour.setText(questions.get(questionToLoad).getOption2());
 
+            currentAnswer = questions.get(questionToLoad).getAnswer();
+
+            currentQuestion = questions.get(questionToLoad).getQuestion();
+            questionsText.add(currentQuestion);
+            solutions.add(currentAnswer);
         }
+
         currentQuestionIndex++;
+
+        //
     }
 
     public void nextQuestion() {
@@ -141,6 +171,9 @@ public class QuizQuestionFragment extends Fragment {
         if (idOfCheckedRadioButton != -1) {
             RadioButton selectedRadioButton = (RadioButton) getView().findViewById(idOfCheckedRadioButton);
             String userResponse = (String) selectedRadioButton.getText();
+            if (userResponse.equals(currentAnswer)) {
+                correct++;
+            }
             Toast.makeText(getContext(), userResponse, Toast.LENGTH_SHORT).show();
             loadQuestion(currentQuestionIndex);
         }
@@ -162,6 +195,12 @@ public class QuizQuestionFragment extends Fragment {
                 //UserDetails userInQuestion = new UserDetails(theUsername, 45); //Pass this info in
                 Intent intent = new Intent(getActivity(), QuizResults.class);
                 intent.putExtra("actionToTake", "WhatUp");
+                intent.putExtra("quizId", String.valueOf(id));
+                intent.putExtra("username", username);
+                intent.putExtra("correct", String.valueOf(correct));
+                intent.putExtra("numberOfQuestions", String.valueOf(numberOfQuestions));
+                intent.putExtra("solutions", solutions);
+                intent.putExtra("questions", questionsText);
                 startActivity(intent);
             }
 

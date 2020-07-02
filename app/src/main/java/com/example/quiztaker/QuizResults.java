@@ -8,10 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class QuizResults extends AppCompatActivity {
     private TextView theScore;
@@ -30,8 +32,28 @@ public class QuizResults extends AppCompatActivity {
         questionsListView = findViewById(R.id.questionNumberListView);
         mainMenu = findViewById(R.id.main_menu_button);
 
-        quizNumOfQuestions = 3; //UPDATE THIS WITH QUERY
-        theScore.setText("Final Score: 7/10 - 70% - Grade: C"); //UPDATE THIS WITH QUERY
+
+
+        //theScore.setText("Final Score: 7/10 - 70% - Grade: C"); //UPDATE THIS WITH QUERY
+
+        // MAKE THIS DATA SHOW ON SCREEN
+        Intent incomingIntent = getIntent();
+        String username = incomingIntent.getStringExtra("username");
+        String quizId = incomingIntent.getStringExtra("quizId");
+        String correct = incomingIntent.getStringExtra("correct");
+        String totalQuestions = incomingIntent.getStringExtra("numberOfQuestions");
+        ArrayList<String> solutions = incomingIntent.getStringArrayListExtra("solutions");
+        ArrayList<String> questions = incomingIntent.getStringArrayListExtra("questions");
+
+        theScore.setText(correct + "/" + totalQuestions);
+        quizNumOfQuestions = Integer.parseInt(totalQuestions); //UPDATE THIS WITH QUERY
+
+        Toast.makeText(getApplicationContext(), "username: "+ username + "" +
+                "\nQuizID" + quizId +
+                "\ncorrect: " + correct +
+                "\nNumber of Questions"+ totalQuestions +
+                "\nsolutions: " + questions.toString() , Toast.LENGTH_SHORT).show();
+
 
         ArrayList <Integer> theQuestionNumbers = new ArrayList<>();
 
