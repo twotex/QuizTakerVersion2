@@ -20,16 +20,13 @@ public class CreateQuiz extends AppCompatActivity {
     private Spinner spinnerCategory;
     private EditText editTextHours;
     private EditText editTextMinutes;
-
     private EditText editTextQuizName;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_quiz);
         final DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
-
 
         buttonBack = findViewById(R.id.buttonBack);
         buttonSubmit = findViewById(R.id.buttonSubmit);
@@ -48,16 +45,11 @@ public class CreateQuiz extends AppCompatActivity {
         spinnerCategory.setAdapter(spinnerArrayAdapter);
 
 
-
-
-
         // event listener for submit button that creates a quiz category
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String quizName = editTextQuizName.getText().toString();
                 String quizCategory = spinnerCategory.getSelectedItem().toString();
-
-
 
                     int min = Integer.parseInt(editTextMinutes.getText().toString());
                     int hours = Integer.parseInt(editTextHours.getText().toString());
@@ -108,10 +100,5 @@ public class CreateQuiz extends AppCompatActivity {
             }
 
         });
-
-
-
-
-
     }
 }

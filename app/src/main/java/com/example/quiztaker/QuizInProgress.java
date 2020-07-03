@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 
+//This class is instantiated when the user has selected the exact quiz that he or she would like to take
 public class QuizInProgress extends AppCompatActivity {
 
     private String quizCategory;
@@ -36,16 +37,17 @@ public class QuizInProgress extends AppCompatActivity {
         nextQuestionButton = findViewById(R.id.nextQuestionBtn);
         submitButton = findViewById(R.id.submitQuizBtn);
 
+        //Obtain user and quiz information from intent
         quizCategory = this.getIntent().getExtras().getString("theCategory");
         quizName = this.getIntent().getExtras().getString("theQuiz");
         userName = this.getIntent().getExtras().getString("userName");
         quizId = this.getIntent().getExtras().getInt("quizId");
-        minutesTotal = this.getIntent().getExtras().getInt("minutes");
+        minutesTotal = this.getIntent().getExtras().getInt("minutes"); //total time limit for the quiz converted to minutes
 
-        // converts minutes to hour and minutes
+        //Extract the hours & minutes available for the quiz from the total minutes allowed for the quiz
         int hoursRemaining =  minutesTotal / 60;
         int minutesRemaining = minutesTotal % 60;
-        int secondsRemaining = 0;
+        int secondsRemaining = 0; //Seconds is always 0 since the admin cannot adjusts the seconds time limit
 
         String theTimeFormatted = String.format("Time Remaining: %02d:%02d:%02d", hoursRemaining, minutesRemaining, secondsRemaining);
         timeRemaining.setText(theTimeFormatted);
@@ -60,15 +62,17 @@ public class QuizInProgress extends AppCompatActivity {
             }
         });
 
+        //Student has decided to submit his quiz for grading
         submitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                //If the student still had time remaining when he or she submitted the quiz
                 if(totalSecondsLeft >= 1) {
                     finish();
                     timer.cancel();
                     fragment.submitQuiz(true);
                 }
 
+                //If the student did not have any time remaining when he or she submitted the quiz
                 else {
                     finish();
                     fragment.submitQuiz(false);
@@ -84,9 +88,10 @@ public class QuizInProgress extends AppCompatActivity {
         timer = new Timer();
         totalSecondsLeft = allowedTimeConvertedToSeconds;
 
-        int delay = 1000;
-        int period = 1000;
+        int delay = 1000; //Delay in milliseconds until timer starts functioning
+        int period = 1000; //Delay in milliseconds between periodic update intervals
 
+        //Timer object that is used to periodically update the time remaining for the quiz
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 if (totalSecondsLeft > 1 ) {
@@ -94,7 +99,6 @@ public class QuizInProgress extends AppCompatActivity {
                     int hoursLeft = totalSecondsLeft / (60 * 60);
                     int minutesLeft = (totalSecondsLeft - (hoursLeft * 60 * 60)) / 60;
                     int secondsLeft = totalSecondsLeft - (hoursLeft * 60 * 60) - (minutesLeft * 60);
-
                     timeRemaining.setText(String.format("Time Remaining: %02d:%02d:%02d", hoursLeft, minutesLeft, secondsLeft));
                 }
 

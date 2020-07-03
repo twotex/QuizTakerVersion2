@@ -44,7 +44,6 @@ public class TimeLimit extends AppCompatActivity {
 
         final ArrayList<String> nameList = new ArrayList<>();
 
-
         // Query database for categories and put them in an array list then fill the spinner
         final ArrayList<String> categoryList = dataBaseHelper.selectCategory();
         categoryList.add(0, "(SELECT)");
@@ -72,9 +71,7 @@ public class TimeLimit extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parentView) {
                 // your code here
             }
-
         });
-
 
         spinnerQuizName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -98,9 +95,7 @@ public class TimeLimit extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parentView) {
                 // your code here
             }
-
         });
-
 
         // event listener for back button
         checkboxUnlimited.setOnClickListener(new View.OnClickListener() {
@@ -110,11 +105,6 @@ public class TimeLimit extends AppCompatActivity {
             }
 
         });
-
-
-
-
-
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

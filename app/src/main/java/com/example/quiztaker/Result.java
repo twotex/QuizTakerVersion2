@@ -1,5 +1,6 @@
 package com.example.quiztaker;
 
+//Class representing results for a quiz
 public class Result {
 
     String username;

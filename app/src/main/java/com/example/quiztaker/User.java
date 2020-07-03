@@ -2,7 +2,7 @@ package com.example.quiztaker;
 
 import java.io.Serializable;
 
-// Class that represents a user in out program
+// Class that represents a user
 public class User implements Serializable {
 
     private String username;

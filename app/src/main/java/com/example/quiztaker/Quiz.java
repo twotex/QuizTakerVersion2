@@ -1,11 +1,11 @@
 package com.example.quiztaker;
 
+//The Quiz class is used to represent a Quiz + its category and time limit constraints
 public class Quiz {
-
     private String quizName;
     private String quizCategory;
     private String timeLimit;
-    private int id;
+    private int id; //The id is used to identify the exact quiz
     private int minutes;
 
     public Quiz(String quizName, String quizCategory, String timeLimit) {

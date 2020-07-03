@@ -177,12 +177,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return 1;
     }
 
-
-    /*
-    SELECT ID, Name FROM   Table1 WHERE  ID NOT IN (SELECT ID FROM Table2)
-     */
-
-
     public ArrayList<User> selectStudentInfo() {
         String query = "SELECT * FROM STUDENTS_TABLE";
         SQLiteDatabase db = this.getReadableDatabase();

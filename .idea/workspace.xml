@@ -17,29 +17,32 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/CreateQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/CreateQuiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/DataBaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/GradeReportOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/GradeReportOption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Quiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizInProgress.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizInProgress.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizMenuFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizMenuFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizQuestionFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizQuestionFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/QuizResults.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/RegisterStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/RegisterStudents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-land/admin_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/admin_dashboard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-land/create_quiz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/create_quiz.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/grade_report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/grade_report.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/quiz_question.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/quiz_question.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/quiz_results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/quiz_results.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/quiz_time.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/quiz_time.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/register_students.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/register_students.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/Signup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/TimeLimit.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/TimeLimit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/UserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/UserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/VariableGradeReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quiztaker/VariableGradeReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +50,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_XL" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_6_API_27" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />

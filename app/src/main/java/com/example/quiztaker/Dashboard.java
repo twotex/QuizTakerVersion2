@@ -10,6 +10,8 @@ public class Dashboard extends AppCompatActivity {
 
     private TextView textViewMessage;
 
+    //This activity is shown to the user when he logs in and is not registered for any quizzes
+    //A single "Hi" message is shown and no buttons are available
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,5 @@ public class Dashboard extends AppCompatActivity {
         String message = intent.getStringExtra("username");
 
         textViewMessage.setText("Welcome, " + message);
-
     }
 }

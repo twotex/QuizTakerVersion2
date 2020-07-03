@@ -38,16 +38,13 @@ public class QuizQuestion extends AppCompatActivity {
         buttonAdd = findViewById(R.id.buttonAdd);
         buttonBack = findViewById(R.id.buttonBack);
 
-
         Bundle b = this.getIntent().getExtras();
         String[] array =b.getStringArray("arr");
         String quizName = array[0];
         String quizCategory = array[1];
 
         final DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
-
         quiz = dataBaseHelper.selectQuiz(quizName, quizCategory);
-
 
         // event listener to add student to quiz
         buttonAdd.setOnClickListener(new View.OnClickListener() {
@@ -58,16 +55,12 @@ public class QuizQuestion extends AppCompatActivity {
                 } else {
                     String[] options = {editTextAnswer.getText().toString() ,editTextOption1.getText().toString(), editTextOption2.getText().toString(), editTextOption3.getText().toString()};
                     long res = dataBaseHelper.insertQuestion(quiz, editTextQuestion.getText().toString(), options);
-
-
                     editTextAnswer.setText("");
                     editTextOption1.setText("");
                     editTextOption2.setText("");
                     editTextOption3.setText("");
                     editTextQuestion.setText("");
                 }
-
-
             }
 
         });
@@ -80,12 +73,5 @@ public class QuizQuestion extends AppCompatActivity {
             }
 
         });
-
-
-
-
-
-
     }
-
 }

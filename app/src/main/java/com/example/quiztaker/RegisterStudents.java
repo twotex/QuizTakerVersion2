@@ -35,9 +35,6 @@ public class RegisterStudents extends AppCompatActivity {
         buttonBack = findViewById(R.id.buttonBack);
 
         final DataBaseHelper dataBaseHelper = new DataBaseHelper((getApplicationContext()));
-
-
-
         final ArrayList<String> nameList = new ArrayList<>();
 
 
@@ -71,7 +68,6 @@ public class RegisterStudents extends AppCompatActivity {
 
         });
 
-
         spinnerQuizName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -82,7 +78,6 @@ public class RegisterStudents extends AppCompatActivity {
                         minutes = Integer.parseInt(list.get(i).getTimeLimit());
                     }
                 }
-
             }
 
             @Override
@@ -101,10 +96,7 @@ public class RegisterStudents extends AppCompatActivity {
 
         });
 
-
         ArrayList<User> userResults = dataBaseHelper.selectStudentInfo();
-
-
 
         ArrayList<String> userList = new ArrayList<>();
         for (int i = 0; i < userResults.size(); i++) {

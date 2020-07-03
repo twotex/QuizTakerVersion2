@@ -40,7 +40,6 @@ public class Login extends AppCompatActivity {
             listOfUsers.putAll(userCreated);
         }
 
-
         // event listener for signup
         buttonSignup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -50,8 +49,6 @@ public class Login extends AppCompatActivity {
             }
 
         });
-
-
 
         // event listener for login
         buttonLogin.setOnClickListener(new View.OnClickListener() {
@@ -79,10 +76,6 @@ public class Login extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 }
-
-
-
-
             }
         });
     }
@@ -92,6 +85,5 @@ public class Login extends AppCompatActivity {
         super.onResume();
         editTextUsername.setText("");
         editTextPassword.setText("");
-
     }
 }

@@ -103,11 +103,6 @@ public class Signup extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), Login.class);
                     startActivity(intent);
                 }
-
-
-
-
-
             }
         });
 
@@ -126,6 +121,5 @@ public class Signup extends AppCompatActivity {
         editTextPasswordRetype.setText("");
         editTextEmail.setText("");
         editTextPhone.setText("");
-
     }
 }

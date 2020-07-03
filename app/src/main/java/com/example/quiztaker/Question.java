@@ -1,5 +1,6 @@
 package com.example.quiztaker;
 
+//The Question class is used to encapsulate a question and all its possible answers
 public class Question {
 
     private String question;
@@ -56,6 +57,7 @@ public class Question {
         this.option3 = option3;
     }
 
+    //Return question and all its possible answers as a string
     @Override
     public String toString() {
         return "Question{" +

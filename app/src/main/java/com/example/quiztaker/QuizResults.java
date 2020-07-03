@@ -41,29 +41,14 @@ public class QuizResults extends AppCompatActivity {
         String totalQuestions = incomingIntent.getStringExtra("numberOfQuestions");
         String quizName = incomingIntent.getStringExtra("quizName");
         String category = incomingIntent.getStringExtra("category");
-        final ArrayList<String> solutions = incomingIntent.getStringArrayListExtra("solutions");    /// GET INFO HERE
+        final ArrayList<String> solutions = incomingIntent.getStringArrayListExtra("solutions");
         final ArrayList<String> questions = incomingIntent.getStringArrayListExtra("questions");
-        // ALL THE DATA ABOVE IS COMING IN CORRECTLY
 
         String theScoreString = correct + "/" + totalQuestions;
-        System.out.println("Username: " + username);
-        System.out.println("Quiz id: " + quizId);
-        System.out.println("Correct: " + correct);
-        System.out.println("Total questions: " + totalQuestions);
-        System.out.println("Quiz name: " + quizName);
-        System.out.println("Category: " + category);
-        System.out.println("Questions: " + questions.toString());
-        System.out.print("\n\n\n\n");
-        System.out.println("Answers: " + solutions.toString());
-
-        findPercentage(theScoreString);
-        findGrade(theScoreString);
 
         theScore.setText("Grade: " + findGrade(theScoreString) + " - Percentage: " + findPercentage(theScoreString) + " - Score: " + theScoreString);
         quizNumOfQuestions = Integer.parseInt(totalQuestions);
-        dataBaseHelper.insertQuiz(username, category, quizId, theScoreString, quizName); //LOOOOOOOK AT THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        // going into Database (username, category, quiz_id)
+        dataBaseHelper.insertQuiz(username, category, quizId, theScoreString, quizName);
 
         ArrayList <Integer> theQuestionNumbers = new ArrayList<>();
 
@@ -84,13 +69,13 @@ public class QuizResults extends AppCompatActivity {
 
         questionsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-
                     theQuestion.setText(questions.get(position));
                     theAnswer.setText(solutions.get(position));
             }
         });
     }
 
+    //Method that finds the percentage of a fraction passed in as a string
     protected String findPercentage(String score) {
         int numerator;
         int denominator;
@@ -106,6 +91,7 @@ public class QuizResults extends AppCompatActivity {
         return finalPercentage;
     }
 
+    //Method that finds the grade of a fraction passed in as a string
     protected String findGrade(String score) {
         int numerator;
         int denominator;

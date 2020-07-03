@@ -24,7 +24,6 @@ public class QuizCategory extends AppCompatActivity {
         buttonSubmit = findViewById(R.id.buttonSubmit);
         editTextTextCategory = findViewById(R.id.editTextQuizName);
 
-
         // event listener for submit button that creates a quiz category
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

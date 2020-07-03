@@ -26,7 +26,6 @@ public class UserDetails implements Parcelable {
         xAge = in.readInt();
     }
 
-
     public static final Creator<UserDetails> CREATOR = new Creator<UserDetails>() {
         @Override
         public UserDetails createFromParcel(Parcel in) {

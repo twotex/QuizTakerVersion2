@@ -16,7 +16,6 @@ public class VariableGradeReport extends AppCompatActivity {
         setContentView(R.layout.grade_report);
 
         Button closeWindowButton = findViewById(R.id.closeWindowBtn);
-
         closeWindowButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -28,11 +27,10 @@ public class VariableGradeReport extends AppCompatActivity {
             userName = this.getIntent().getExtras().getString("theUserName");
             String action = getIntent().getExtras().getString("actionToTake");
 
-
             QuizMenuFragment fragment =
                     QuizMenuFragment.newInstance(action, userName);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.frameForQuizzes, fragment) //adding the song detail fragment to the frame layout within activity_song_detail
+                    .add(R.id.frameForQuizzes, fragment)
                     .commit();
         }
     }

@@ -33,28 +33,21 @@ public class QuizMenuFragment extends Fragment {
         specificQuizPosition = 0;
     }
 
-
     public static QuizMenuFragment newInstance(String actionToTake, String userName) {
         QuizMenuFragment fragment = new QuizMenuFragment(actionToTake, userName);
         return fragment;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         final DataBaseHelper db = new DataBaseHelper(getContext());
-
-
-
         ArrayList<Result> listOfQuizzes = db.selectQuizResults();
         ArrayList<Result> userQuizResults = new ArrayList<>();
         for (int i = 0; i < listOfQuizzes.size(); i++) {
-            if (listOfQuizzes.get(i).getUsername().equals(studentUsername)) {      //// Pass in the student username
+            if (listOfQuizzes.get(i).getUsername().equals(studentUsername)) {
                 userQuizResults.add(listOfQuizzes.get(i));
-
-
             }
         }
 
@@ -65,16 +58,6 @@ public class QuizMenuFragment extends Fragment {
             }
         }
 
-        String quizScore = "";
-        for (int i = 0; i < userQuizResults.size(); i++) {
-                if (userQuizResults.get(i).getUsername().equals(studentUsername) && userQuizResults.get(i).getCategory().equals("Biology")) {
-                    quizScore = (userQuizResults.get(i).getScore());
-                }
-
-        }
-
-
-
         if (activityToDo.equals("Display All Quizzes")) { //This code is executed when the user is looking up his grades by all quizzes
             View rootView = inflater.inflate(R.layout.quiz_list_view_combined, container, false);
             ListView theListView = rootView.findViewById(R.id.listViewAllQuizzes);
@@ -84,7 +67,6 @@ public class QuizMenuFragment extends Fragment {
             final ArrayList<String> quizCategories = new ArrayList<String>();
             final ArrayList<String> quizNames = new ArrayList<String>();
             final ArrayList<String> quizAndCategoryCombined = new ArrayList<String>();
-
 
             for (int i = 0; i < listOfStudentQuizzes.size(); i++) {
                 quizAndCategoryCombined.add(listOfStudentQuizzes.get(i).getQuizCategory()
@@ -99,9 +81,6 @@ public class QuizMenuFragment extends Fragment {
 
             theListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v, int position, long id){
-//                    VariableGradeReport parentActivity = (VariableGradeReport) getActivity();
-//                    String usersScore = "3/15"; //UPDATE THIS WITH QUERY RESULTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//                    parentActivity.updateStats(findGrade(usersScore), usersScore, findPercentage(usersScore)); //UPDATE THIS WITH QUERY RESULTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     VariableGradeReport parentActivity = (VariableGradeReport) getActivity();
 
                     String categoryClicked = listOfStudentQuizzes.get(position).getQuizCategory();
@@ -123,11 +102,8 @@ public class QuizMenuFragment extends Fragment {
                         }
                     }
 
-
-
                     String usersScore = quizScore;
                     parentActivity.updateStats(findGrade(usersScore), usersScore, findPercentage(usersScore));
-
                 }
             });
             return rootView;
@@ -137,13 +113,9 @@ public class QuizMenuFragment extends Fragment {
             final View rootView = inflater.inflate(R.layout.quiz_list_view_categorized, container, false);
             final ListView categoriesListView = rootView.findViewById(R.id.listViewCategories);
             final ListView specificQuizzesListView = rootView.findViewById(R.id.listViewSpecificQuizzes);
-
             final ArrayList<Quiz> listOfStudentQuizzes = db.selectStudentQuizes(studentUsername);
-
             final ArrayList<String> quizCategories = new ArrayList<String>();
-            for (int i = 0; i < userQuizResults.size(); i++) {
 
-            }
             final ArrayList<String> quizNames = new ArrayList<String>();
 
             for (int i = 0; i < listOfStudentQuizzes.size(); i++) {
@@ -166,7 +138,7 @@ public class QuizMenuFragment extends Fragment {
                     parentActivity.updateStats("", "", "");
                     categoryPosition = position;
                     String theCategoryClicked = quizCategories.get(categoryPosition);
-                    lastCategoryClicked = quizCategories.get(categoryPosition); ///////@@@@@@@@@@@@@@
+                    lastCategoryClicked = quizCategories.get(categoryPosition);
                     for (int i = 0; i < listOfStudentQuizzes.size(); i++) {
                         if (listOfStudentQuizzes.get(i).getQuizCategory().equals(theCategoryClicked)) {
                             specificQuizAdapter.add(listOfStudentQuizzes.get(i).getQuizName());
@@ -178,14 +150,8 @@ public class QuizMenuFragment extends Fragment {
 
             specificQuizzesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-//                    VariableGradeReport parentActivity = (VariableGradeReport) getActivity();
-//                    String usersScore = "3/15"; //UPDATE THIS WITH QUERY RESULTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//                    parentActivity.updateStats(findGrade(usersScore), usersScore, findPercentage(usersScore));
-//                    specificQuizzesListView.setSelector(R.color.colorDarkerGray);
-//                }
-//            });
                     VariableGradeReport parentActivity = (VariableGradeReport) getActivity();
-                    String clickedQuiz = specificQuizAdapter.getItem(position); //ADDED THIS!!!!!!!
+                    String clickedQuiz = specificQuizAdapter.getItem(position);
 
                     ArrayList<Result> listOfQuizzes = db.selectQuizResults();
                     ArrayList<Result> userQuizResults = new ArrayList<>();
@@ -203,7 +169,7 @@ public class QuizMenuFragment extends Fragment {
                         }
                     }
 
-                    String usersScore = quizScore; //UPDATE THIS WITH QUERY RESULTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    String usersScore = quizScore;
                     parentActivity.updateStats(findGrade(usersScore), usersScore, findPercentage(usersScore));
                     specificQuizzesListView.setSelector(R.color.colorDarkerGray);
                 }
@@ -220,7 +186,6 @@ public class QuizMenuFragment extends Fragment {
             final ArrayList<Quiz> listOfStudentQuizzes = db.selectStudentQuizes(studentUsername);
 
             //Quiz object contains quiz name, quiz category, and id
-
             final ArrayList<String> quizCategories = new ArrayList<String>();
             final ArrayList<String> quizNames = new ArrayList<String>();
 
@@ -237,8 +202,6 @@ public class QuizMenuFragment extends Fragment {
             final ArrayAdapter<String> specificQuizAdapter = new ArrayAdapter<String>(rootView.getContext(), android.R.layout.simple_list_item_1, quizNames);
             specificQuizzesListView.setAdapter(specificQuizAdapter);
 
-
-            // PLEASE SELECT A QUIZ TO TAKE - quiz name
             categoriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                     TakeQuizDisplay parentActivity = (TakeQuizDisplay) getActivity();
@@ -254,8 +217,6 @@ public class QuizMenuFragment extends Fragment {
                     }
                     specificQuizzesListView.setSelector(R.color.colorWhite);
                 }
-
-
             });
 
             specificQuizzesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -282,6 +243,7 @@ public class QuizMenuFragment extends Fragment {
         }
     }
 
+    //Method that finds the percentage of a fraction passed in as a string
     protected String findPercentage(String score) {
         int numerator;
         int denominator;
@@ -297,6 +259,7 @@ public class QuizMenuFragment extends Fragment {
         return finalPercentage;
     }
 
+    //Method that finds the grade of a fraction passed in as a string
     protected String findGrade(String score) {
         int numerator;
         int denominator;
@@ -329,7 +292,6 @@ public class QuizMenuFragment extends Fragment {
         else {
             finalGrade = "F";
         }
-
         return finalGrade;
     }
 }

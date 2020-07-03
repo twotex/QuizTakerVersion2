@@ -43,6 +43,7 @@ public class QuizQuestionFragment extends Fragment {
     private ArrayList<String> questionsText;
     private int questionsAnsweredCorrect;
 
+
     public QuizQuestionFragment(String quizCategory, String quizName, int quizId, String theUsername) {
         username = theUsername;
         theCategory = quizCategory;
@@ -91,10 +92,38 @@ public class QuizQuestionFragment extends Fragment {
         radioButtonContainer.clearCheck();
         questionNumber.setText("Question# " + (questionToLoad + 1));
         questionDescription.setText(allQuestions.get(questionToLoad).getQuestion());
-        optionOne.setText(allQuestions.get(questionToLoad).getOption1());
-        optionTwo.setText(allQuestions.get(questionToLoad).getAnswer());
-        optionThree.setText(allQuestions.get(questionToLoad).getOption3());
-        optionFour.setText(allQuestions.get(questionToLoad).getOption2());
+
+        //Random number generator needed to put answer in a random location
+        Random randomGenerator = new Random();
+        int randomInt = randomGenerator.nextInt(4);
+
+        if (randomInt == 0) {
+            optionOne.setText(allQuestions.get(questionToLoad).getAnswer());
+            optionTwo.setText(allQuestions.get(questionToLoad).getOption2());
+            optionThree.setText(allQuestions.get(questionToLoad).getOption1());
+            optionFour.setText(allQuestions.get(questionToLoad).getOption3());
+        }
+
+        else if (randomInt == 1) {
+            optionOne.setText(allQuestions.get(questionToLoad).getOption1());
+            optionTwo.setText(allQuestions.get(questionToLoad).getAnswer());
+            optionThree.setText(allQuestions.get(questionToLoad).getOption3());
+            optionFour.setText(allQuestions.get(questionToLoad).getOption2());
+        }
+
+        else if (randomInt == 2) {
+            optionOne.setText(allQuestions.get(questionToLoad).getOption3());
+            optionTwo.setText(allQuestions.get(questionToLoad).getOption2());
+            optionThree.setText(allQuestions.get(questionToLoad).getAnswer());
+            optionFour.setText(allQuestions.get(questionToLoad).getOption1());
+        }
+
+        else {
+            optionOne.setText(allQuestions.get(questionToLoad).getOption2());
+            optionTwo.setText(allQuestions.get(questionToLoad).getOption3());
+            optionThree.setText(allQuestions.get(questionToLoad).getOption1());
+            optionFour.setText(allQuestions.get(questionToLoad).getAnswer());
+        }
 
         currentAnswer = allQuestions.get(questionToLoad).getAnswer();
         currentQuestion = allQuestions.get(questionToLoad).getQuestion();
@@ -110,6 +139,7 @@ public class QuizQuestionFragment extends Fragment {
         }
     }
 
+    //Loads the next questions when the user hits the "next question" button
     public void nextQuestion() {
         int idOfCheckedRadioButton = radioButtonContainer.getCheckedRadioButtonId();
         if (idOfCheckedRadioButton != -1) {
@@ -128,7 +158,6 @@ public class QuizQuestionFragment extends Fragment {
     }
 
     public void submitQuiz(boolean timeRemaining) {
-
         if (timeRemaining == true) {
             int idOfCheckedRadioButton = radioButtonContainer.getCheckedRadioButtonId();
 
@@ -171,6 +200,7 @@ public class QuizQuestionFragment extends Fragment {
         }
     }
 
+    //Hides specific radio buttons depending on the number of possible answers
     public void setAvailableRadioButtons(int number) {
         switch (number) {
             case 0:
