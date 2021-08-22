@@ -53,7 +53,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         String createTableStatement6 = "create table "+ ADMINS_TABLE + " (id integer primary key, username text, password text, type text, UNIQUE(username,password))";
         db.execSQL(createTableStatement6);
 
-        String createTableStatement7 = "create table "+ QUIZ_RESULTS + " (id integer primary key, username text, category text, quiz_id text, score text, quiz_name, UNIQUE(username, category, quiz_id))";
+        String createTableStatement7 = "create table "+ QUIZ_RESULTS + " (id integer primary key, username text, category text, quiz_id text, score text, quiz_name text, UNIQUE(username, category, quiz_id))";
         db.execSQL(createTableStatement7);
     }
 

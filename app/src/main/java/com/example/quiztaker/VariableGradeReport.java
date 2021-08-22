@@ -15,7 +15,7 @@ public class VariableGradeReport extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grade_report);
 
-        Button closeWindowButton = findViewById(R.id.closeWindowBtn);
+        Button closeWindowButton = findViewById(R.id.backBtn);
         closeWindowButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {

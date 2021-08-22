@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline27" />
 
     <Button
-        android:id="@+id/closeWindowBtn"
+        android:id="@+id/backBtn"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/close_window_label"

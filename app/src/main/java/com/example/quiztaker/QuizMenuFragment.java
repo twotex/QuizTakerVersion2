@@ -83,27 +83,35 @@ public class QuizMenuFragment extends Fragment {
                 public void onItemClick(AdapterView<?> parent, View v, int position, long id){
                     VariableGradeReport parentActivity = (VariableGradeReport) getActivity();
 
-                    String categoryClicked = listOfStudentQuizzes.get(position).getQuizCategory();
-                    String quizClicked = listOfStudentQuizzes.get(position).getQuizName();
+                    try {
+                        String categoryClicked = listOfStudentQuizzes.get(position).getQuizCategory();
+                        String quizClicked = listOfStudentQuizzes.get(position).getQuizName();
 
-                    ArrayList<Result> listOfQuizzes = db.selectQuizResults();
-                    ArrayList<Result> userQuizResults = new ArrayList<>();
-                    for (int i = 0; i < listOfQuizzes.size(); i++) {
-                        if (listOfQuizzes.get(i).getUsername().equals(studentUsername)) {
-                            userQuizResults.add(listOfQuizzes.get(i));
+                        ArrayList<Result> listOfQuizzes = db.selectQuizResults();
+                        ArrayList<Result> userQuizResults = new ArrayList<>();
+                        for (int i = 0; i < listOfQuizzes.size(); i++) {
+                            if (listOfQuizzes.get(i).getUsername().equals(studentUsername)) {
+                                userQuizResults.add(listOfQuizzes.get(i));
+                            }
                         }
+
+                        String quizScore = "";
+                        for (int i = 0; i < userQuizResults.size(); i++) {
+                            if (userQuizResults.get(i).getCategory().equals(categoryClicked) && userQuizResults.get(i).getQuizName().equals(quizClicked)) {
+                                quizScore = (userQuizResults.get(i).getScore());
+                                break;
+                            }
+                        }
+
+                        String usersScore = quizScore;
+                        parentActivity.updateStats(findGrade(usersScore), usersScore, findPercentage(usersScore));
                     }
 
-                    String quizScore = "";
-                    for (int i = 0; i < userQuizResults.size(); i++) {
-                        if (userQuizResults.get(i).getCategory().equals(categoryClicked) && userQuizResults.get(i).getQuizName().equals(quizClicked)) {
-                            quizScore = (userQuizResults.get(i).getScore());
-                            break;
-                        }
+                    catch (Exception e)
+                    {
+                        parentActivity.updateStats("N/A", "N/A", "N/A");
                     }
 
-                    String usersScore = quizScore;
-                    parentActivity.updateStats(findGrade(usersScore), usersScore, findPercentage(usersScore));
                 }
             });
             return rootView;
@@ -134,6 +142,7 @@ public class QuizMenuFragment extends Fragment {
             categoriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                     specificQuizAdapter.clear();
+
                     VariableGradeReport parentActivity = (VariableGradeReport) getActivity();
                     parentActivity.updateStats("", "", "");
                     categoryPosition = position;
@@ -150,28 +159,35 @@ public class QuizMenuFragment extends Fragment {
 
             specificQuizzesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+
                     VariableGradeReport parentActivity = (VariableGradeReport) getActivity();
-                    String clickedQuiz = specificQuizAdapter.getItem(position);
-
-                    ArrayList<Result> listOfQuizzes = db.selectQuizResults();
-                    ArrayList<Result> userQuizResults = new ArrayList<>();
-                    for (int i = 0; i < listOfQuizzes.size(); i++) {
-                        if (listOfQuizzes.get(i).getUsername().equals(studentUsername)) {
-                            userQuizResults.add(listOfQuizzes.get(i));
+                    try {
+                        String clickedQuiz = specificQuizAdapter.getItem(position);
+                        ArrayList<Result> listOfQuizzes = db.selectQuizResults();
+                        ArrayList<Result> userQuizResults = new ArrayList<>();
+                        for (int i = 0; i < listOfQuizzes.size(); i++) {
+                            if (listOfQuizzes.get(i).getUsername().equals(studentUsername)) {
+                                userQuizResults.add(listOfQuizzes.get(i));
+                            }
                         }
+
+                        String quizScore = "";
+                        for (int i = 0; i < userQuizResults.size(); i++) {
+                            if (userQuizResults.get(i).getCategory().equals(lastCategoryClicked) && userQuizResults.get(i).getQuizName().equals(clickedQuiz)) {
+                                quizScore = (userQuizResults.get(i).getScore());
+                                break;
+                            }
+                        }
+
+                        String usersScore = quizScore;
+                        parentActivity.updateStats(findGrade(usersScore), usersScore, findPercentage(usersScore));
+                        specificQuizzesListView.setSelector(R.color.colorDarkerGray);
                     }
 
-                    String quizScore = "";
-                    for (int i = 0; i < userQuizResults.size(); i++) {
-                        if (userQuizResults.get(i).getCategory().equals(lastCategoryClicked) && userQuizResults.get(i).getQuizName().equals(clickedQuiz)) {
-                            quizScore = (userQuizResults.get(i).getScore());
-                            break;
-                        }
+                    catch(Exception e)
+                    {
+                        parentActivity.updateStats("N/A", "N/A", "N/A");
                     }
-
-                    String usersScore = quizScore;
-                    parentActivity.updateStats(findGrade(usersScore), usersScore, findPercentage(usersScore));
-                    specificQuizzesListView.setSelector(R.color.colorDarkerGray);
                 }
             });
             return rootView;
